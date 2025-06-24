@@ -1,9 +1,30 @@
 
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowDown, Shield, Bot, Bug, Zap } from 'lucide-react';
+import { ArrowUp, Shield, Bot, Bug, Zap } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Show/hide scroll to top button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Smooth scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const keyServices = [
     {
       icon: Shield,
@@ -86,13 +107,19 @@ const Hero = () => {
               </div>
             ))}
           </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ArrowDown className="w-6 h-6 text-cyber-blue" />
-          </div>
         </div>
       </div>
+
+      {/* Scroll to top button - positioned in bottom left corner */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 left-8 z-50 p-3 bg-cyber-blue/20 backdrop-blur-sm border border-cyber-blue/30 rounded-full hover:bg-cyber-blue hover:text-black transition-all duration-300 group hover:scale-110 animate-fade-in"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6 text-cyber-blue group-hover:text-black animate-bounce" />
+        </button>
+      )}
     </section>
   );
 };
