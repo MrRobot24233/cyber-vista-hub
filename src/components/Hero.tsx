@@ -2,10 +2,13 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowDown } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const { t, language } = useLanguage();
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/5 via-transparent to-cyber-purple/5" />
       
@@ -22,26 +25,25 @@ const Hero = () => {
               <span className="text-white">PULSE</span>
             </h1>
             <h2 className="text-2xl md:text-4xl font-semibold text-gray-300">
-              أمان المواقع والشات بوتات الذكية
+              {t('heroSubtitle')}
             </h2>
           </div>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            خبير في اختبار الاختراق وتأمين المواقع وصناعة الشات بوتات المدعومة بالذكاء الاصطناعي. 
-            نحمي مواقعك ونطور حلول ذكية لأعمالك.
+            {t('heroDescription')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Link to="/contact">
               <Button className="neon-button text-lg px-8 py-4">
-                احصل على استشارة مجانية
+                {t('freeConsultation')}
               </Button>
             </Link>
             <Link to="/about">
               <Button variant="outline" className="border-cyber-purple text-cyber-purple hover:bg-cyber-purple hover:text-black text-lg px-8 py-4">
-                تعرف على خدماتنا
+                {t('learnMore')}
               </Button>
             </Link>
           </div>
@@ -50,19 +52,19 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16">
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-blue">100+</div>
-              <div className="text-gray-400">موقع تم تأمينه</div>
+              <div className="text-gray-400">{t('securedSites')}</div>
             </div>
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-green">50+</div>
-              <div className="text-gray-400">شات بوت ذكي</div>
+              <div className="text-gray-400">{t('smartBots')}</div>
             </div>
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-purple">200+</div>
-              <div className="text-gray-400">ثغرة تم اكتشافها</div>
+              <div className="text-gray-400">{t('vulnerabilities')}</div>
             </div>
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-orange">24/7</div>
-              <div className="text-gray-400">دعم فني</div>
+              <div className="text-gray-400">{t('support')}</div>
             </div>
           </div>
 
