@@ -1,3 +1,4 @@
+
 import { Card } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
 
@@ -23,7 +24,7 @@ const Contact = () => {
     },
     {
       name: 'Instagram',
-      url: '#', // Replace with your Instagram profile URL
+      url: 'https://www.instagram.com/_bdl._.fateh_/',
       logo: '📷',
       description: 'Instagram Profile'
     }
