@@ -1,73 +1,32 @@
 
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowDown, Shield, Code, Bug, Zap } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { ArrowDown, Shield, Bot, Bug, Zap } from 'lucide-react';
 
 const Hero = () => {
-  const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  
-  const tasks = [
-    "حماية المواقع الإلكترونية",
-    "تطوير الروبوتات الذكية", 
-    "اختبار الاختراق",
-    "إصلاح الثغرات الأمنية",
-    "تطوير التطبيقات",
-    "استشارات الأمن السيبراني"
-  ];
-
-  useEffect(() => {
-    const typingSpeed = 100;
-    const deletingSpeed = 50;
-    const delayBetweenTasks = 2000;
-
-    const timer = setTimeout(() => {
-      const currentTask = tasks[currentTaskIndex];
-      
-      if (!isDeleting) {
-        if (currentText.length < currentTask.length) {
-          setCurrentText(currentTask.substring(0, currentText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), delayBetweenTasks);
-        }
-      } else {
-        if (currentText.length > 0) {
-          setCurrentText(currentTask.substring(0, currentText.length - 1));
-        } else {
-          setIsDeleting(false);
-          setCurrentTaskIndex((prevIndex) => (prevIndex + 1) % tasks.length);
-        }
-      }
-    }, isDeleting ? deletingSpeed : typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentTaskIndex, tasks]);
-
-  const features = [
+  const keyServices = [
     {
       icon: Shield,
-      title: 'أمان عالي',
-      description: 'حماية شاملة',
+      title: 'Penetration Testing',
+      description: 'Website security assessment',
       color: 'text-cyber-blue'
     },
     {
-      icon: Code,
-      title: 'تطوير متقدم',
-      description: 'حلول مبتكرة',
+      icon: Bot,
+      title: 'Smart Chatbots',
+      description: 'AI-powered solutions',
       color: 'text-cyber-green'
     },
     {
       icon: Bug,
-      title: 'اختبار دقيق',
-      description: 'فحص شامل',
+      title: 'Bug Bounty',
+      description: 'Vulnerability research',
       color: 'text-cyber-purple'
     },
     {
       icon: Zap,
-      title: 'استجابة سريعة',
-      description: 'خدمة فورية',
+      title: 'Quick Response',
+      description: '24/7 emergency support',
       color: 'text-cyber-orange'
     }
   ];
@@ -94,17 +53,6 @@ const Hero = () => {
             </h2>
           </div>
 
-          {/* Typewriter Effect */}
-          <div className="py-8">
-            <div className="text-xl md:text-2xl text-gray-400 mb-4">
-              نحن متخصصون في:
-            </div>
-            <div className="text-2xl md:text-4xl font-bold gradient-text min-h-[3rem] flex items-center justify-center">
-              {currentText}
-              <span className="animate-pulse ml-1">|</span>
-            </div>
-          </div>
-
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Expert in penetration testing, website security, and AI-powered chatbot development. We protect your websites and develop smart solutions for your business.
@@ -124,18 +72,16 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16">
-            {features.map((feature, index) => (
-              <div key={index} className="cyber-card text-center group hover:scale-110 transition-all duration-500">
+          {/* Key Services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16">
+            {keyServices.map((service, index) => (
+              <div key={index} className="cyber-card text-center group hover:scale-105 transition-all duration-300">
                 <div className="space-y-3">
-                  <div className={`w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-current to-transparent p-4 ${feature.color} group-hover:animate-pulse`}>
-                    <feature.icon className="w-6 h-6" />
+                  <div className={`w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-current to-transparent p-3 ${service.color}`}>
+                    <service.icon className="w-6 h-6" />
                   </div>
-                  <h3 className={`text-lg font-bold ${feature.color}`}>
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 font-medium">{feature.description}</p>
+                  <h3 className="text-lg font-semibold text-white">{service.title}</h3>
+                  <p className="text-sm text-gray-400">{service.description}</p>
                 </div>
               </div>
             ))}
