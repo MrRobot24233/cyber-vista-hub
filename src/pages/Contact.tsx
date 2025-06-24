@@ -1,4 +1,3 @@
-
 import { Card } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
 
@@ -6,7 +5,7 @@ const Contact = () => {
   const socialPlatforms = [
     {
       name: 'Fiverr',
-      url: '#', // Replace with your Fiverr profile URL
+      url: 'https://www.fiverr.com/s/42kB1ed',
       logo: '🟢',
       description: 'Fiverr Profile'
     },
