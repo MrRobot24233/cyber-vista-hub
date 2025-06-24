@@ -1,32 +1,33 @@
 
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowDown, Shield, Bot, Bug, Zap } from 'lucide-react';
+import { ArrowDown, TrendingUp, Globe, Users, Zap } from 'lucide-react';
 
 const Hero = () => {
-  const keyServices = [
+  const attractiveStats = [
     {
-      icon: Shield,
-      title: 'Penetration Testing',
-      description: 'Website security assessment',
+      icon: Globe,
+      number: '195+',
+      label: 'Countries Served',
       color: 'text-cyber-blue'
     },
     {
-      icon: Bot,
-      title: 'Smart Chatbots',
-      description: 'AI-powered solutions',
+      icon: Users,
+      number: '10K+',
+      label: 'Happy Clients',
       color: 'text-cyber-green'
     },
     {
-      icon: Bug,
-      title: 'Bug Bounty',
-      description: 'Vulnerability research',
+      icon: TrendingUp,
+      number: '99.9%',
+      label: 'Success Rate',
       color: 'text-cyber-purple'
     },
     {
       icon: Zap,
-      title: 'Quick Response',
-      description: '24/7 emergency support',
+      number: '<24h',
+      label: 'Response Time',
       color: 'text-cyber-orange'
     }
   ];
@@ -72,16 +73,18 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Key Services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16">
-            {keyServices.map((service, index) => (
-              <div key={index} className="cyber-card text-center group hover:scale-105 transition-all duration-300">
+          {/* Attractive Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16">
+            {attractiveStats.map((stat, index) => (
+              <div key={index} className="cyber-card text-center group hover:scale-110 transition-all duration-500">
                 <div className="space-y-3">
-                  <div className={`w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-current to-transparent p-3 ${service.color}`}>
-                    <service.icon className="w-6 h-6" />
+                  <div className={`w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-current to-transparent p-4 ${stat.color} group-hover:animate-pulse`}>
+                    <stat.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{service.title}</h3>
-                  <p className="text-sm text-gray-400">{service.description}</p>
+                  <div className={`text-3xl md:text-4xl font-bold ${stat.color}`}>
+                    {stat.number}
+                  </div>
+                  <p className="text-sm text-gray-400 font-medium">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -98,3 +101,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
