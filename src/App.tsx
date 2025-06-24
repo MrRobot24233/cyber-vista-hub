@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import MatrixBackground from "@/components/MatrixBackground";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import News from "./pages/News";
 import Tools from "./pages/Tools";
@@ -26,6 +27,7 @@ const App = () => (
         <div className="min-h-screen bg-cyber-dark text-white">
           <MatrixBackground />
           <Navigation />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/news" element={<News />} />
