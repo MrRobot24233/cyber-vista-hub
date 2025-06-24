@@ -1,47 +1,44 @@
 
 import { Card } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
-  const { t, language } = useLanguage();
-
   const socialPlatforms = [
     {
-      name: t('fiverr'),
-      url: '#', // ضع رابط ملفك الشخصي في Fiverr هنا
+      name: 'Fiverr',
+      url: '#', // Replace with your Fiverr profile URL
       logo: '🟢',
       description: 'Fiverr Profile'
     },
     {
-      name: t('freelancer'),
-      url: '#', // ضع رابط ملفك الشخصي في Freelancer هنا
+      name: 'Freelancer',
+      url: '#', // Replace with your Freelancer profile URL
       logo: '💼',
       description: 'Freelancer.com Profile'
     },
     {
-      name: t('facebook'),
-      url: '#', // ضع رابط صفحتك في Facebook هنا
+      name: 'Facebook',
+      url: '#', // Replace with your Facebook page URL
       logo: '📘',
       description: 'Facebook Page'
     },
     {
-      name: t('instagram'),
-      url: '#', // ضع رابط حسابك في Instagram هنا
+      name: 'Instagram',
+      url: '#', // Replace with your Instagram profile URL
       logo: '📷',
       description: 'Instagram Profile'
     }
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="gradient-text">{t('contactTitle')}</span>
+            <span className="gradient-text">Contact Me</span>
           </h1>
           <p className="text-xl text-gray-400">
-            {t('contactSubtitle')}
+            Ready to help you secure your website or develop a smart chatbot
           </p>
         </div>
 
@@ -76,13 +73,10 @@ const Contact = () => {
           <Card className="cyber-card">
             <div className="p-8">
               <h2 className="text-2xl font-bold text-cyber-blue mb-4">
-                {language === 'ar' ? 'جاهز للبدء؟' : 'Ready to Start?'}
+                Ready to Start?
               </h2>
               <p className="text-gray-300 text-lg">
-                {language === 'ar' 
-                  ? 'تواصل معي عبر أي من المنصات أعلاه للحصول على استشارة مجانية وتقييم احتياجاتك الأمنية.'
-                  : 'Contact me through any of the platforms above for a free consultation and assessment of your security needs.'
-                }
+                Contact me through any of the platforms above for a free consultation and assessment of your security needs.
               </p>
             </div>
           </Card>

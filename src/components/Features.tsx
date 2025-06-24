@@ -2,65 +2,62 @@
 import { Card } from '@/components/ui/card';
 import { Shield, Bot, Bug, Zap, Users, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Features = () => {
-  const { t, language } = useLanguage();
-
   const features = [
     {
       icon: Shield,
-      title: t('penetrationTesting'),
-      description: t('penetrationTestingDesc'),
+      title: 'Penetration Testing',
+      description: 'Comprehensive website security testing and vulnerability discovery before hackers exploit them.',
       link: '/contact',
       color: 'text-cyber-blue'
     },
     {
       icon: Bot,
-      title: t('smartChatbots'),
-      description: t('smartChatbotsDesc'),
+      title: 'Smart Chatbots',
+      description: 'AI-powered chatbot development that can be integrated into all platforms and applications.',
       link: '/contact',
       color: 'text-cyber-green'
     },
     {
       icon: Bug,
-      title: t('bugBounty'),
-      description: t('bugBountyDesc'),
+      title: 'Bug Bounty',
+      description: 'Vulnerability research services and participation in global Bug Bounty programs.',
       link: '/contact',
       color: 'text-cyber-purple'
     },
     {
       icon: Zap,
-      title: t('performanceOptimization'),
-      description: t('performanceOptimizationDesc'),
+      title: 'Performance Optimization',
+      description: 'Website security and speed optimization to ensure excellent user experience.',
       link: '/contact',
       color: 'text-cyber-orange'
     },
     {
       icon: Users,
-      title: t('securityConsultation'),
-      description: t('securityConsultationDesc'),
+      title: 'Security Consultation',
+      description: 'Specialized cybersecurity consulting and security risk assessment for organizations.',
       link: '/contact',
       color: 'text-cyber-red'
     },
     {
       icon: Award,
-      title: t('postHackRepair'),
-      description: t('postHackRepairDesc'),
+      title: 'Post-Hack Repair',
+      description: 'Emergency services to repair hacked websites and restore their secure operation.',
       link: '/contact',
       color: 'text-cyber-blue'
     }
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">{t('featuresTitle')}</span>
+            <span className="gradient-text">Our Specialized Services</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            {t('featuresSubtitle')}
+            We provide comprehensive cybersecurity solutions and smart chatbot development
           </p>
         </div>
 
@@ -75,7 +72,7 @@ const Features = () => {
                   <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
                   <p className="text-gray-400 leading-relaxed">{feature.description}</p>
                   <div className={`text-sm font-medium ${feature.color} group-hover:underline`}>
-                    {t('requestService')} →
+                    Request Service →
                   </div>
                 </div>
               </Card>

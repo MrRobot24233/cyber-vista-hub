@@ -2,13 +2,10 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowDown } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
-  const { t, language } = useLanguage();
-
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/5 via-transparent to-cyber-purple/5" />
       
@@ -25,25 +22,25 @@ const Hero = () => {
               <span className="text-white">PULSE</span>
             </h1>
             <h2 className="text-2xl md:text-4xl font-semibold text-gray-300">
-              {t('heroSubtitle')}
+              Website Security & Smart Chatbots
             </h2>
           </div>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            {t('heroDescription')}
+            Expert in penetration testing, website security, and AI-powered chatbot development. We protect your websites and develop smart solutions for your business.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Link to="/contact">
               <Button className="neon-button text-lg px-8 py-4">
-                {t('freeConsultation')}
+                Get Free Consultation
               </Button>
             </Link>
             <Link to="/about">
               <Button variant="outline" className="border-cyber-purple text-cyber-purple hover:bg-cyber-purple hover:text-black text-lg px-8 py-4">
-                {t('learnMore')}
+                Learn More
               </Button>
             </Link>
           </div>
@@ -52,19 +49,19 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16">
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-blue">100+</div>
-              <div className="text-gray-400">{t('securedSites')}</div>
+              <div className="text-gray-400">Secured Websites</div>
             </div>
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-green">50+</div>
-              <div className="text-gray-400">{t('smartBots')}</div>
+              <div className="text-gray-400">Smart Chatbots</div>
             </div>
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-purple">200+</div>
-              <div className="text-gray-400">{t('vulnerabilities')}</div>
+              <div className="text-gray-400">Vulnerabilities Found</div>
             </div>
             <div className="cyber-card text-center">
               <div className="text-3xl font-bold text-cyber-orange">24/7</div>
-              <div className="text-gray-400">{t('support')}</div>
+              <div className="text-gray-400">Support</div>
             </div>
           </div>
 

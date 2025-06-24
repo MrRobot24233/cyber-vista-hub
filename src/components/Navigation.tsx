@@ -4,22 +4,19 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Home, Calendar, Wrench, Book, Contact, FileText } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import LanguageToggle from './LanguageToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { t, language } = useLanguage();
 
   const navItems = [
-    { name: t('home'), path: '/', icon: Home },
-    { name: t('news'), path: '/news', icon: Calendar },
-    { name: t('tools'), path: '/tools', icon: Wrench },
-    { name: t('roadmap'), path: '/roadmap', icon: FileText },
-    { name: t('learning'), path: '/learning', icon: Book },
-    { name: t('about'), path: '/about', icon: Contact },
-    { name: t('contact'), path: '/contact', icon: Contact },
+    { name: 'Home', path: '/', icon: Home },
+    { name: 'News', path: '/news', icon: Calendar },
+    { name: 'Tools', path: '/tools', icon: Wrench },
+    { name: 'Roadmap', path: '/roadmap', icon: FileText },
+    { name: 'Learning', path: '/learning', icon: Book },
+    { name: 'About', path: '/about', icon: Contact },
+    { name: 'Contact', path: '/contact', icon: Contact },
   ];
 
   const NavLink = ({ item, mobile = false }: { item: any; mobile?: boolean }) => {
@@ -37,7 +34,6 @@ const Navigation = () => {
             : 'text-gray-300 hover:text-cyber-blue hover:bg-cyber-blue/10'
         }`}
         onClick={() => mobile && setIsOpen(false)}
-        dir={language === 'ar' ? 'rtl' : 'ltr'}
       >
         {mobile && <Icon className="w-5 h-5" />}
         <span className="font-medium">{item.name}</span>
@@ -62,12 +58,10 @@ const Navigation = () => {
             {navItems.map((item) => (
               <NavLink key={item.name} item={item} />
             ))}
-            <LanguageToggle />
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center space-x-2">
-            <LanguageToggle />
+          <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="border-cyber-blue/30">
@@ -75,7 +69,7 @@ const Navigation = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="bg-cyber-dark border-cyber-blue/20">
-                <div className="flex flex-col space-y-4 mt-8" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+                <div className="flex flex-col space-y-4 mt-8">
                   <div className="flex items-center space-x-2 mb-8">
                     <div className="w-8 h-8 bg-neon-gradient rounded-lg flex items-center justify-center">
                       <span className="text-black font-bold text-lg">S</span>
