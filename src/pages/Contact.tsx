@@ -17,7 +17,7 @@ const Contact = () => {
     },
     {
       name: 'Facebook',
-      url: '#', // Replace with your Facebook page URL
+      url: 'https://www.facebook.com/profile.php?id=100070026216872',
       logo: '📘',
       description: 'Facebook Page'
     },
