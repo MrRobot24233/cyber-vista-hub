@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-100/30 via-cyan-50/40 to-yellow-100/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyber-dark/90 via-cyber-light/20 to-cyber-dark/90" />
       
       {/* Animated floating elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-purple-500/20 rounded-full blur-xl animate-float" />
@@ -39,15 +39,15 @@ const Hero = () => {
             </div>
             <h1 className="text-6xl md:text-8xl font-bold">
               <span className="gradient-text">SEC</span>
-              <span className="text-slate-800">PULSE</span>
+              <span className="text-white">PULSE</span>
             </h1>
-            <h2 className="text-3xl md:text-5xl font-semibold text-slate-600">
+            <h2 className="text-3xl md:text-5xl font-semibold text-gray-300">
               {t('heroSubtitle')}
             </h2>
           </div>
 
           {/* Enhanced subtitle */}
-          <p className="text-xl md:text-2xl text-slate-500 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
             {t('heroDescription')}
           </p>
 
@@ -59,7 +59,7 @@ const Hero = () => {
               </Button>
             </Link>
             <Link to="/about">
-              <Button variant="outline" className="border-2 border-pink-400 text-pink-600 hover:bg-pink-50 hover:text-pink-700 text-lg px-10 py-5 rounded-xl shadow-lg">
+              <Button variant="outline" className="border-2 border-pink-400 text-pink-400 hover:bg-pink-400/10 hover:text-pink-300 text-lg px-10 py-5 rounded-xl shadow-lg">
                 {t('learnMore')}
               </Button>
             </Link>
@@ -69,19 +69,19 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16">
             <div className="vibrant-card text-center group">
               <div className="text-4xl font-bold text-cyber-blue mb-2 group-hover:scale-110 transition-transform">100+</div>
-              <div className="text-slate-600">{t('securedSites')}</div>
+              <div className="text-gray-400">{t('securedSites')}</div>
             </div>
             <div className="vibrant-card text-center group">
               <div className="text-4xl font-bold text-cyber-green mb-2 group-hover:scale-110 transition-transform">50+</div>
-              <div className="text-slate-600">{t('smartBots')}</div>
+              <div className="text-gray-400">{t('smartBots')}</div>
             </div>
             <div className="vibrant-card text-center group">
               <div className="text-4xl font-bold text-cyber-purple mb-2 group-hover:scale-110 transition-transform">200+</div>
-              <div className="text-slate-600">{t('vulnerabilities')}</div>
+              <div className="text-gray-400">{t('vulnerabilities')}</div>
             </div>
             <div className="vibrant-card text-center group">
               <div className="text-4xl font-bold text-cyber-orange mb-2 group-hover:scale-110 transition-transform">24/7</div>
-              <div className="text-slate-600">{t('support')}</div>
+              <div className="text-gray-400">{t('support')}</div>
             </div>
           </div>
 

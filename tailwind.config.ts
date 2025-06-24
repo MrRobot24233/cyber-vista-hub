@@ -70,7 +70,7 @@ export default {
 					red: '#FF0040',
 					orange: '#FF8C00',
 					dark: '#1A1B23',
-					light: '#F8F9FA',
+					light: '#2A2B35',
 					accent: '#FFD700',
 					pink: '#FF1493',
 					teal: '#20B2AA'
@@ -147,11 +147,11 @@ export default {
 				'bounce-slow': 'bounce-slow 3s infinite'
 			},
 			backgroundImage: {
-				'cyber-gradient': 'linear-gradient(135deg, #F8F9FA 0%, #E3F2FD 50%, #F0F8FF 100%)',
+				'cyber-gradient': 'linear-gradient(135deg, #1A1B23 0%, #2A2B35 50%, #1A1B23 100%)',
 				'neon-gradient': 'linear-gradient(135deg, #00D4FF 0%, #FFD700 100%)',
 				'green-gradient': 'linear-gradient(135deg, #00FF88 0%, #20B2AA 100%)',
 				'vibrant-gradient': 'linear-gradient(135deg, #FF1493 0%, #8B5CF6 50%, #00D4FF 100%)',
-				'card-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%)'
+				'card-gradient': 'linear-gradient(135deg, rgba(42, 43, 53, 0.95) 0%, rgba(26, 27, 35, 0.9) 100%)'
 			}
 		}
 	},

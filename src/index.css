@@ -3,47 +3,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Vibrant cybersecurity theme design system */
+/* Dark cybersecurity theme design system */
 
 @layer base {
   :root {
-    --background: 248 250 252;
-    --foreground: 15 23 42;
+    --background: 26 27 35;
+    --foreground: 255 255 255;
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card: 42 43 53;
+    --card-foreground: 255 255 255;
 
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover: 42 43 53;
+    --popover-foreground: 255 255 255;
 
     --primary: 195 100% 50%;
     --primary-foreground: 255 255 255;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 15 23 42;
+    --secondary: 42 43 53;
+    --secondary-foreground: 255 255 255;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 100 116 139;
+    --muted: 42 43 53;
+    --muted-foreground: 163 163 163;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 15 23 42;
+    --accent: 42 43 53;
+    --accent-foreground: 255 255 255;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 44% 91%;
-    --input: 226 44% 91%;
+    --border: 42 43 53;
+    --input: 42 43 53;
     --ring: 195 100% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 15 23 42;
+    --sidebar-background: 42 43 53;
+    --sidebar-foreground: 255 255 255;
     --sidebar-primary: 195 100% 50%;
     --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 15 23 42;
-    --sidebar-border: 226 44% 91%;
+    --sidebar-accent: 42 43 53;
+    --sidebar-accent-foreground: 255 255 255;
+    --sidebar-border: 42 43 53;
     --sidebar-ring: 195 100% 50%;
   }
 }
@@ -54,8 +54,8 @@
   }
 
   body {
-    @apply bg-cyber-light text-foreground font-sans;
-    background: linear-gradient(135deg, #F8F9FA 0%, #E3F2FD 30%, #F0F8FF 70%, #FFFACD 100%);
+    @apply bg-cyber-dark text-foreground font-sans;
+    background: linear-gradient(135deg, #1A1B23 0%, #2A2B35 30%, #1A1B23 70%, #2A2B35 100%);
     min-height: 100vh;
   }
 
@@ -65,7 +65,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-white;
+    @apply bg-cyber-dark;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -79,13 +79,13 @@
 
 @layer components {
   .cyber-card {
-    @apply bg-card-gradient backdrop-blur-sm border-2 border-cyan-200/40 rounded-lg p-6 shadow-lg;
+    @apply bg-card-gradient backdrop-blur-sm border-2 border-cyan-500/30 rounded-lg p-6 shadow-lg;
     box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15), 0 0 20px rgba(255, 212, 0, 0.1);
     transition: all 0.3s ease;
   }
 
   .cyber-card:hover {
-    @apply border-cyan-300/60;
+    @apply border-cyan-400/50;
     box-shadow: 0 12px 40px rgba(0, 212, 255, 0.25), 0 0 30px rgba(255, 212, 0, 0.2);
     transform: translateY(-4px);
   }
@@ -141,15 +141,15 @@
   }
 
   .vibrant-card {
-    @apply bg-white/90 backdrop-blur-sm border border-pink-200/30 rounded-xl p-6 shadow-xl;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
-    box-shadow: 0 10px 40px rgba(255, 20, 147, 0.1), 0 0 20px rgba(0, 212, 255, 0.1);
+    @apply bg-card-gradient backdrop-blur-sm border border-cyan-500/30 rounded-xl p-6 shadow-xl;
+    background: linear-gradient(135deg, rgba(42, 43, 53, 0.95) 0%, rgba(26, 27, 35, 0.9) 100%);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1), 0 0 20px rgba(255, 212, 0, 0.1);
     transition: all 0.3s ease;
   }
 
   .vibrant-card:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(255, 20, 147, 0.2), 0 0 40px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2), 0 0 40px rgba(255, 212, 0, 0.2);
   }
 }
 

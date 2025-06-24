@@ -25,7 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="min-h-screen bg-cyber-light text-slate-800">
+          <div className="min-h-screen bg-cyber-dark text-white">
             <MatrixBackground />
             {/* Floating particles */}
             <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
