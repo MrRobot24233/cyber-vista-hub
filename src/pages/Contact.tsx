@@ -12,7 +12,7 @@ const Contact = () => {
     },
     {
       name: 'Freelancer',
-      url: '#', // Replace with your Freelancer profile URL
+      url: 'https://www.freelancer.com/u/SecPulse?frm=SecPulse&sb=t',
       logo: '💼',
       description: 'Freelancer.com Profile'
     },
