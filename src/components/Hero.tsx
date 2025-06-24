@@ -1,33 +1,73 @@
 
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowDown, TrendingUp, Globe, Users, Zap } from 'lucide-react';
+import { ArrowDown, Shield, Code, Bug, Zap } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
-  const attractiveStats = [
+  const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const tasks = [
+    "حماية المواقع الإلكترونية",
+    "تطوير الروبوتات الذكية", 
+    "اختبار الاختراق",
+    "إصلاح الثغرات الأمنية",
+    "تطوير التطبيقات",
+    "استشارات الأمن السيبراني"
+  ];
+
+  useEffect(() => {
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBetweenTasks = 2000;
+
+    const timer = setTimeout(() => {
+      const currentTask = tasks[currentTaskIndex];
+      
+      if (!isDeleting) {
+        if (currentText.length < currentTask.length) {
+          setCurrentText(currentTask.substring(0, currentText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), delayBetweenTasks);
+        }
+      } else {
+        if (currentText.length > 0) {
+          setCurrentText(currentTask.substring(0, currentText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setCurrentTaskIndex((prevIndex) => (prevIndex + 1) % tasks.length);
+        }
+      }
+    }, isDeleting ? deletingSpeed : typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentTaskIndex, tasks]);
+
+  const features = [
     {
-      icon: Globe,
-      number: '195+',
-      label: 'Countries Served',
+      icon: Shield,
+      title: 'أمان عالي',
+      description: 'حماية شاملة',
       color: 'text-cyber-blue'
     },
     {
-      icon: Users,
-      number: '10K+',
-      label: 'Happy Clients',
+      icon: Code,
+      title: 'تطوير متقدم',
+      description: 'حلول مبتكرة',
       color: 'text-cyber-green'
     },
     {
-      icon: TrendingUp,
-      number: '99.9%',
-      label: 'Success Rate',
+      icon: Bug,
+      title: 'اختبار دقيق',
+      description: 'فحص شامل',
       color: 'text-cyber-purple'
     },
     {
       icon: Zap,
-      number: '<24h',
-      label: 'Response Time',
+      title: 'استجابة سريعة',
+      description: 'خدمة فورية',
       color: 'text-cyber-orange'
     }
   ];
@@ -54,6 +94,17 @@ const Hero = () => {
             </h2>
           </div>
 
+          {/* Typewriter Effect */}
+          <div className="py-8">
+            <div className="text-xl md:text-2xl text-gray-400 mb-4">
+              نحن متخصصون في:
+            </div>
+            <div className="text-2xl md:text-4xl font-bold gradient-text min-h-[3rem] flex items-center justify-center">
+              {currentText}
+              <span className="animate-pulse ml-1">|</span>
+            </div>
+          </div>
+
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Expert in penetration testing, website security, and AI-powered chatbot development. We protect your websites and develop smart solutions for your business.
@@ -73,18 +124,18 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Attractive Stats */}
+          {/* Features Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16">
-            {attractiveStats.map((stat, index) => (
+            {features.map((feature, index) => (
               <div key={index} className="cyber-card text-center group hover:scale-110 transition-all duration-500">
                 <div className="space-y-3">
-                  <div className={`w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-current to-transparent p-4 ${stat.color} group-hover:animate-pulse`}>
-                    <stat.icon className="w-6 h-6" />
+                  <div className={`w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-current to-transparent p-4 ${feature.color} group-hover:animate-pulse`}>
+                    <feature.icon className="w-6 h-6" />
                   </div>
-                  <div className={`text-3xl md:text-4xl font-bold ${stat.color}`}>
-                    {stat.number}
-                  </div>
-                  <p className="text-sm text-gray-400 font-medium">{stat.label}</p>
+                  <h3 className={`text-lg font-bold ${feature.color}`}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 font-medium">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -101,4 +152,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
