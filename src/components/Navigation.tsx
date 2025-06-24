@@ -10,13 +10,13 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/', icon: Home },
-    { name: 'News', path: '/news', icon: Calendar },
-    { name: 'Tools', path: '/tools', icon: Wrench },
-    { name: 'Roadmap', path: '/roadmap', icon: FileText },
-    { name: 'Learning', path: '/learning', icon: Book },
-    { name: 'About', path: '/about', icon: Contact },
-    { name: 'Contact', path: '/contact', icon: Contact },
+    { name: 'الرئيسية', path: '/', icon: Home },
+    { name: 'الأخبار', path: '/news', icon: Calendar },
+    { name: 'الأدوات', path: '/tools', icon: Wrench },
+    { name: 'خريطة التعلم', path: '/roadmap', icon: FileText },
+    { name: 'التعلم', path: '/learning', icon: Book },
+    { name: 'عني', path: '/about', icon: Contact },
+    { name: 'التواصل', path: '/contact', icon: Contact },
   ];
 
   const NavLink = ({ item, mobile = false }: { item: any; mobile?: boolean }) => {
@@ -48,9 +48,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-neon-gradient rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-lg">C</span>
+              <span className="text-black font-bold text-lg">S</span>
             </div>
-            <span className="text-xl font-bold gradient-text">CyberVista</span>
+            <span className="text-xl font-bold gradient-text">SECPULSE</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -71,9 +71,9 @@ const Navigation = () => {
               <div className="flex flex-col space-y-4 mt-8">
                 <div className="flex items-center space-x-2 mb-8">
                   <div className="w-8 h-8 bg-neon-gradient rounded-lg flex items-center justify-center">
-                    <span className="text-black font-bold text-lg">C</span>
+                    <span className="text-black font-bold text-lg">S</span>
                   </div>
-                  <span className="text-xl font-bold gradient-text">CyberVista</span>
+                  <span className="text-xl font-bold gradient-text">SECPULSE</span>
                 </div>
                 {navItems.map((item) => (
                   <NavLink key={item.name} item={item} mobile />

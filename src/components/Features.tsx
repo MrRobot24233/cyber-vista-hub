@@ -1,49 +1,49 @@
 
 import { Card } from '@/components/ui/card';
-import { Calendar, Wrench, Book, FileText, Newspaper, Contact } from 'lucide-react';
+import { Shield, Bot, Bug, Zap, Users, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Features = () => {
   const features = [
     {
-      icon: Newspaper,
-      title: 'Auto News Feed',
-      description: 'Real-time cybersecurity news from trusted sources, updated every hour automatically.',
-      link: '/news',
+      icon: Shield,
+      title: 'اختبار الاختراق',
+      description: 'اختبار شامل لأمان المواقع واكتشاف الثغرات الأمنية قبل أن يستغلها المخترقون.',
+      link: '/contact',
       color: 'text-cyber-blue'
     },
     {
-      icon: Wrench,
-      title: 'Security Tools',
-      description: 'Curated collection of essential cybersecurity tools and utilities for professionals.',
-      link: '/tools',
+      icon: Bot,
+      title: 'الشات بوتات الذكية',
+      description: 'تطوير شات بوتات مدعومة بالذكاء الاصطناعي يمكن دمجها في جميع المنصات والتطبيقات.',
+      link: '/contact',
       color: 'text-cyber-green'
     },
     {
-      icon: FileText,
-      title: 'Career Roadmap',
-      description: 'Structured learning paths and career guidance for cybersecurity professionals.',
-      link: '/roadmap',
+      icon: Bug,
+      title: 'Bug Bounty',
+      description: 'خدمات البحث عن الثغرات والمشاركة في برامج Bug Bounty العالمية.',
+      link: '/contact',
       color: 'text-cyber-purple'
     },
     {
-      icon: Book,
-      title: 'Learning Hub',
-      description: 'Comprehensive educational resources, courses, and certifications.',
-      link: '/learning',
+      icon: Zap,
+      title: 'تحسين الأداء',
+      description: 'تأمين المواقع وتحسين سرعتها وأدائها لضمان تجربة مستخدم مميزة.',
+      link: '/contact',
       color: 'text-cyber-orange'
     },
     {
-      icon: Calendar,
-      title: 'Daily Updates',
-      description: 'Fresh content delivered daily from leading cybersecurity sources worldwide.',
-      link: '/news',
+      icon: Users,
+      title: 'الاستشارات الأمنية',
+      description: 'استشارات متخصصة في الأمن السيبراني وتقييم المخاطر الأمنية للمؤسسات.',
+      link: '/contact',
       color: 'text-cyber-red'
     },
     {
-      icon: Contact,
-      title: 'Expert Network',
-      description: 'Connect with cybersecurity professionals and expand your network.',
+      icon: Award,
+      title: 'إصلاح بعد الاختراق',
+      description: 'خدمات الطوارئ لإصلاح المواقع المخترقة واستعادة عملها بأمان تام.',
       link: '/contact',
       color: 'text-cyber-blue'
     }
@@ -54,10 +54,10 @@ const Features = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Platform Features</span>
+            <span className="gradient-text">خدماتنا المتخصصة</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Everything you need to stay informed and advance your cybersecurity career
+            نقدم حلول شاملة في الأمن السيبراني وتطوير الشات بوتات الذكية
           </p>
         </div>
 
@@ -72,7 +72,7 @@ const Features = () => {
                   <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
                   <p className="text-gray-400 leading-relaxed">{feature.description}</p>
                   <div className={`text-sm font-medium ${feature.color} group-hover:underline`}>
-                    Learn more →
+                    اطلب الخدمة →
                   </div>
                 </div>
               </Card>

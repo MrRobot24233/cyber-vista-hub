@@ -33,8 +33,8 @@ const Contact = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      title: "تم إرسال الرسالة!",
+      description: "شكراً لك على رسالتك. سأقوم بالرد عليك في أقرب وقت ممكن.",
     });
 
     setFormData({
@@ -49,39 +49,59 @@ const Contact = () => {
   const contactMethods = [
     {
       icon: Mail,
-      title: 'Email',
-      description: 'alex@cybervista.com',
-      action: 'mailto:alex@cybervista.com',
+      title: 'البريد الإلكتروني',
+      description: 'info@secpulse.com',
+      action: 'mailto:info@secpulse.com',
       color: 'text-cyber-blue'
     },
     {
       icon: MessageSquare,
-      title: 'Discord',
-      description: 'Join our community',
-      action: 'https://discord.gg/cybersecurity',
-      color: 'text-cyber-purple'
-    },
-    {
-      icon: Phone,
-      title: 'LinkedIn',
-      description: 'Professional network',
-      action: 'https://linkedin.com/in/alexchen-security',
+      title: 'واتساب',
+      description: 'تواصل سريع',
+      action: 'https://wa.me/1234567890',
       color: 'text-cyber-green'
     },
     {
+      icon: Phone,
+      title: 'هاتف',
+      description: 'استشارة مباشرة',
+      action: 'tel:+1234567890',
+      color: 'text-cyber-purple'
+    },
+    {
       icon: MapPin,
-      title: 'Location',
-      description: 'San Francisco, CA',
+      title: 'الموقع',
+      description: 'خدمات عن بُعد',
       action: null,
       color: 'text-cyber-orange'
     }
   ];
 
   const socialLinks = [
-    { name: 'Twitter', url: 'https://twitter.com/alexchen_sec', username: '@alexchen_sec' },
-    { name: 'GitHub', url: 'https://github.com/alexchen-security', username: 'alexchen-security' },
-    { name: 'Medium', url: 'https://medium.com/@alexchen-security', username: '@alexchen-security' },
-    { name: 'YouTube', url: 'https://youtube.com/@CyberSecWithAlex', username: 'CyberSecWithAlex' }
+    { 
+      name: 'Fiverr', 
+      url: 'https://fiverr.com/your-profile', 
+      username: 'secpulse_expert',
+      logo: '🎯'
+    },
+    { 
+      name: 'Freelancer.com', 
+      url: 'https://freelancer.com/your-profile', 
+      username: 'secpulse',
+      logo: '💼'
+    },
+    { 
+      name: 'Facebook', 
+      url: 'https://facebook.com/your-profile', 
+      username: 'SECPULSE',
+      logo: '📘'
+    },
+    { 
+      name: 'Instagram', 
+      url: 'https://instagram.com/your-profile', 
+      username: '@secpulse',
+      logo: '📷'
+    }
   ];
 
   return (
@@ -90,10 +110,10 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Get In Touch</span>
+            <span className="gradient-text">تواصل معي</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Have questions about cybersecurity? Want to collaborate? I'd love to hear from you.
+            هل لديك مشروع تريد تأمينه؟ أم تحتاج شات بوت ذكي؟ دعنا نتحدث ونجد الحل المناسب لك.
           </p>
         </div>
 
@@ -102,7 +122,7 @@ const Contact = () => {
           <div className="lg:col-span-1 space-y-6">
             <Card className="cyber-card">
               <div className="space-y-6">
-                <h2 className="text-xl font-bold text-white">Contact Information</h2>
+                <h2 className="text-xl font-bold text-white">معلومات التواصل</h2>
                 
                 {contactMethods.map((method, index) => (
                   <div key={index} className="flex items-start gap-4">
@@ -132,7 +152,7 @@ const Contact = () => {
             {/* Social Links */}
             <Card className="cyber-card">
               <div className="space-y-4">
-                <h2 className="text-xl font-bold text-white">Follow Me</h2>
+                <h2 className="text-xl font-bold text-white">ملفاتي الشخصية</h2>
                 <div className="space-y-3">
                   {socialLinks.map((social, index) => (
                     <a
@@ -142,11 +162,14 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-3 bg-black/20 rounded-lg hover:bg-cyber-blue/10 transition-colors group"
                     >
-                      <div>
-                        <span className="font-medium text-white group-hover:text-cyber-blue transition-colors">
-                          {social.name}
-                        </span>
-                        <p className="text-gray-400 text-sm">{social.username}</p>
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{social.logo}</span>
+                        <div>
+                          <span className="font-medium text-white group-hover:text-cyber-blue transition-colors">
+                            {social.name}
+                          </span>
+                          <p className="text-gray-400 text-sm">{social.username}</p>
+                        </div>
                       </div>
                       <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-cyber-blue transition-colors" />
                     </a>
@@ -158,14 +181,14 @@ const Contact = () => {
             {/* Quick Response */}
             <Card className="cyber-card">
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-white">Quick Response</h3>
+                <h3 className="text-lg font-semibold text-white">سرعة الاستجابة</h3>
                 <p className="text-gray-400 text-sm">
-                  I typically respond to messages within 24-48 hours. For urgent security matters, 
-                  please use the email contact method.
+                  أرد عادة على الرسائل خلال 24 ساعة. للحالات الطارئة، 
+                  يرجى استخدام الواتساب للتواصل السريع.
                 </p>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-2 h-2 bg-cyber-green rounded-full animate-pulse"></div>
-                  <span className="text-gray-400">Usually responds within a day</span>
+                  <span className="text-gray-400">متاح للمشاريع الجديدة</span>
                 </div>
               </div>
             </Card>
@@ -175,13 +198,13 @@ const Contact = () => {
           <div className="lg:col-span-2">
             <Card className="cyber-card">
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-white">Send a Message</h2>
+                <h2 className="text-2xl font-bold text-white">أرسل رسالة</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                        Full Name *
+                        الاسم الكامل *
                       </label>
                       <Input
                         id="name"
@@ -191,12 +214,12 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className="bg-black/40 border-cyber-blue/30 text-white"
-                        placeholder="Your full name"
+                        placeholder="اسمك الكامل"
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                        Email Address *
+                        البريد الإلكتروني *
                       </label>
                       <Input
                         id="email"
@@ -213,7 +236,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      Subject *
+                      الموضوع *
                     </label>
                     <Input
                       id="subject"
@@ -223,13 +246,13 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       className="bg-black/40 border-cyber-blue/30 text-white"
-                      placeholder="What's this about?"
+                      placeholder="موضوع رسالتك"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message *
+                      الرسالة *
                     </label>
                     <Textarea
                       id="message"
@@ -239,7 +262,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       className="bg-black/40 border-cyber-blue/30 text-white resize-none"
-                      placeholder="Tell me more about your inquiry..."
+                      placeholder="اكتب تفاصيل مشروعك أو استفسارك..."
                     />
                   </div>
 
@@ -252,47 +275,44 @@ const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Sending...
+                          جارٍ الإرسال...
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4 mr-2" />
-                          Send Message
+                          إرسال الرسالة
                         </>
                       )}
                     </Button>
                     <p className="text-xs text-gray-500">
-                      * Required fields
+                      * الحقول المطلوبة
                     </p>
                   </div>
                 </form>
               </div>
             </Card>
 
-            {/* FAQ */}
+            {/* Services FAQ */}
             <Card className="cyber-card mt-8">
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-white">Frequently Asked Questions</h3>
+                <h3 className="text-xl font-bold text-white">الأسئلة الشائعة</h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-cyber-blue mb-2">Do you offer consultation services?</h4>
+                    <h4 className="font-semibold text-cyber-blue mb-2">كم تستغرق عملية اختبار الاختراق؟</h4>
                     <p className="text-gray-400 text-sm">
-                      Yes, I provide cybersecurity consulting for organizations of all sizes. 
-                      Please include details about your requirements in your message.
+                      يعتمد على حجم وتعقيد الموقع، عادة من 3-7 أيام عمل للمواقع المتوسطة.
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-cyber-blue mb-2">Can you help with career guidance?</h4>
+                    <h4 className="font-semibold text-cyber-blue mb-2">هل يمكن دمج الشات بوت في أي منصة؟</h4>
                     <p className="text-gray-400 text-sm">
-                      Absolutely! I'm passionate about helping others enter and advance in cybersecurity. 
-                      Feel free to reach out for mentorship and career advice.
+                      نعم، أطور شات بوتات تعمل على WhatsApp، Telegram، Facebook، المواقع، والتطبيقات.
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-cyber-blue mb-2">Do you collaborate on research projects?</h4>
+                    <h4 className="font-semibold text-cyber-blue mb-2">ما هو الضمان المقدم للخدمات؟</h4>
                     <p className="text-gray-400 text-sm">
-                      I'm always interested in collaborating on security research and open-source projects. 
-                      Send me details about your project or idea.
+                      أقدم ضمان لمدة شهر على جميع الخدمات مع دعم فني مجاني لمدة 3 أشهر.
                     </p>
                   </div>
                 </div>
