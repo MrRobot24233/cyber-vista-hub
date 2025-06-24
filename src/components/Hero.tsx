@@ -1,9 +1,36 @@
 
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Shield, Bot, Bug, Zap } from 'lucide-react';
 
 const Hero = () => {
+  const keyServices = [
+    {
+      icon: Shield,
+      title: 'Penetration Testing',
+      description: 'Website security assessment',
+      color: 'text-cyber-blue'
+    },
+    {
+      icon: Bot,
+      title: 'Smart Chatbots',
+      description: 'AI-powered solutions',
+      color: 'text-cyber-green'
+    },
+    {
+      icon: Bug,
+      title: 'Bug Bounty',
+      description: 'Vulnerability research',
+      color: 'text-cyber-purple'
+    },
+    {
+      icon: Zap,
+      title: 'Quick Response',
+      description: '24/7 emergency support',
+      color: 'text-cyber-orange'
+    }
+  ];
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Background effects */}
@@ -45,24 +72,19 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16">
-            <div className="cyber-card text-center">
-              <div className="text-3xl font-bold text-cyber-blue">100+</div>
-              <div className="text-gray-400">Secured Websites</div>
-            </div>
-            <div className="cyber-card text-center">
-              <div className="text-3xl font-bold text-cyber-green">50+</div>
-              <div className="text-gray-400">Smart Chatbots</div>
-            </div>
-            <div className="cyber-card text-center">
-              <div className="text-3xl font-bold text-cyber-purple">200+</div>
-              <div className="text-gray-400">Vulnerabilities Found</div>
-            </div>
-            <div className="cyber-card text-center">
-              <div className="text-3xl font-bold text-cyber-orange">24/7</div>
-              <div className="text-gray-400">Support</div>
-            </div>
+          {/* Key Services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16">
+            {keyServices.map((service, index) => (
+              <div key={index} className="cyber-card text-center group hover:scale-105 transition-all duration-300">
+                <div className="space-y-3">
+                  <div className={`w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-current to-transparent p-3 ${service.color}`}>
+                    <service.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{service.title}</h3>
+                  <p className="text-sm text-gray-400">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Scroll indicator */}
