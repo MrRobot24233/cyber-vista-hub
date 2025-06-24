@@ -1,19 +1,19 @@
 
 import { Card } from '@/components/ui/card';
-import { Calendar, Tools, Book, FileText, News, Contact } from 'lucide-react';
+import { Calendar, Wrench, Book, FileText, Newspaper, Contact } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Features = () => {
   const features = [
     {
-      icon: News,
+      icon: Newspaper,
       title: 'Auto News Feed',
       description: 'Real-time cybersecurity news from trusted sources, updated every hour automatically.',
       link: '/news',
       color: 'text-cyber-blue'
     },
     {
-      icon: Tools,
+      icon: Wrench,
       title: 'Security Tools',
       description: 'Curated collection of essential cybersecurity tools and utilities for professionals.',
       link: '/tools',
