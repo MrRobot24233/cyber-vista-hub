@@ -1,23 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecPulse - Website Security & Smart Chatbots</title>
-    
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Anti-Bot Detection -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="email=no">
+    <title>CyberVista Hub - Cybersecurity News, Tools & Learning</title>
+    <meta name="description" content="Your comprehensive cybersecurity platform featuring automated news feeds, security tools, learning resources, and career roadmaps." />
     
     <style>
         * {
@@ -27,66 +15,11 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #0A0A0B 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
-            /* Disable text selection for security */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* Re-enable text selection for content areas */
-        p, .hero-content, .section-header, .feature-card p {
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
-        }
-
-        /* Anti-Inspection Protection */
-        .protected-content {
-            pointer-events: none;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* Security Overlay (Hidden) */
-        .security-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 0, 0, 0.9);
-            color: white;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        /* Rate Limiting Visual Indicator */
-        .rate-limit-warning {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 165, 0, 0.9);
-            color: black;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: none;
-            z-index: 9999;
-            font-weight: bold;
         }
 
         /* Matrix Background Effect */
@@ -148,7 +81,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%);
             -webkit-background-clip: text;
@@ -168,6 +101,7 @@
             text-decoration: none;
             transition: color 0.3s ease;
             position: relative;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
@@ -196,29 +130,6 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
-        }
-
-        /* Security Status Indicator */
-        .security-status {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 255, 0, 0.2);
-            border: 1px solid rgba(0, 255, 0, 0.4);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
         }
 
         /* Hero Section */
@@ -273,9 +184,10 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 7rem);
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: bold;
             margin-bottom: 1rem;
+            line-height: 1.1;
         }
 
         .gradient-text {
@@ -286,14 +198,14 @@
         }
 
         .hero h2 {
-            font-size: clamp(1.5rem, 4vw, 4rem);
+            font-size: clamp(1.2rem, 3vw, 2rem);
             color: #c7c7c7;
             margin-bottom: 2rem;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .hero p {
-            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: #9ca3af;
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -314,7 +226,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             border: 2px solid;
             position: relative;
@@ -345,53 +257,41 @@
             color: #000;
         }
 
-        /* Services Grid */
-        .services-grid {
+        /* Stats Grid */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .service-card {
+        .stat-card {
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.05);
+        .stat-card:hover {
+            transform: translateY(-5px);
             border-color: rgba(0, 212, 255, 0.4);
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
         }
 
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, currentColor, transparent);
-            padding: 12px;
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00D4FF;
             margin-bottom: 0.5rem;
-            color: white;
         }
 
-        .service-card p {
+        .stat-label {
             color: #9ca3af;
             font-size: 0.9rem;
         }
@@ -421,7 +321,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -464,11 +364,70 @@
             line-height: 1.6;
         }
 
+        /* News Section */
+        .news-section {
+            padding: 6rem 2rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-card {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #00D4FF;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .news-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
             bottom: 2rem;
-            left: 2rem;
+            right: 2rem;
             z-index: 1000;
             width: 50px;
             height: 50px;
@@ -523,12 +482,16 @@
                 align-items: center;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
 
             .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -536,77 +499,23 @@
                 display: none;
             }
         }
-
-        /* Color Classes */
-        .text-cyber-blue { color: #00D4FF; }
-        .text-cyber-green { color: #00FF88; }
-        .text-cyber-purple { color: #8B5CF6; }
-        .text-cyber-orange { color: #FF8C00; }
-
-        /* Additional Security Styles */
-        .honeypot {
-            position: absolute;
-            left: -9999px;
-            visibility: hidden;
-        }
-
-        .security-badge {
-            position: fixed;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            border-radius: 5px;
-            padding: 5px;
-            writing-mode: vertical-lr;
-            font-size: 12px;
-            color: #00FF88;
-            z-index: 100;
-        }
     </style>
 </head>
 <body>
-    <!-- Security Overlay for Threats -->
-    <div class="security-overlay" id="securityOverlay">
-        <div>
-            <h2>⚠️ تم اكتشاف نشاط مشبوه</h2>
-            <p>تم حظر الوصول لأسباب أمنية</p>
-        </div>
-    </div>
-
-    <!-- Rate Limiting Warning -->
-    <div class="rate-limit-warning" id="rateLimitWarning">
-        تحذير: عدد كبير من الطلبات!
-    </div>
-
-    <!-- Security Badge -->
-    <div class="security-badge">
-        SecPulse Protected
-    </div>
-
-    <!-- Security Status Indicator -->
-    <div class="security-status" title="الموقع محمي">
-        🛡️
-    </div>
-
-    <!-- Honeypot Fields (Hidden) -->
-    <input type="text" name="username" class="honeypot" tabindex="-1" autocomplete="off">
-    <input type="email" name="email" class="honeypot" tabindex="-1" autocomplete="off">
-
     <!-- Matrix Background -->
     <div class="matrix-bg" id="matrixBg"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">SECPULSE</div>
+            <div class="logo">CyberVista Hub</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" data-section="home">الرئيسية</a></li>
-                <li><a href="#features" data-section="features">الميزات</a></li>
-                <li><a href="#services" data-section="services">الخدمات</a></li>
-                <li><a href="#about" data-section="about">من نحن</a></li>
-                <li><a href="#contact" data-section="contact">اتصل بنا</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#learning">Learning</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
             </ul>
             <button class="menu-toggle" id="menuToggle">☰</button>
         </div>
@@ -620,42 +529,38 @@
         
         <div class="hero-content">
             <h1>
-                <span class="gradient-text">SEC</span><span>PULSE</span>
+                <span class="gradient-text">Cyber</span>Vista Hub
             </h1>
-            <h2>Website Security & Smart Chatbots</h2>
+            <h2>Your Ultimate Cybersecurity Platform</h2>
             <p>
-                خبير في اختبار الاختراق وأمان المواقع وتطوير الشات بوت المدعوم بالذكاء الاصطناعي. 
-                نحمي مواقعكم ونطور حلول ذكية لأعمالكم.
+                Stay ahead of cyber threats with our comprehensive platform featuring automated news feeds, 
+                cutting-edge security tools, expert learning resources, and personalized career roadmaps.
             </p>
             
             <div class="btn-group">
-                <a href="#contact" class="btn btn-primary" data-action="consultation">احصل على استشارة مجانية</a>
-                <a href="#about" class="btn btn-secondary" data-action="learn-more">اعرف المزيد</a>
+                <a href="#features" class="btn btn-primary">Explore Features</a>
+                <a href="#news" class="btn btn-secondary">Latest News</a>
             </div>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon text-cyber-blue">🛡️</div>
-                    <h3>اختبار الاختراق</h3>
-                    <p>تقييم أمان الموقع</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Security News</div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon text-cyber-green">🤖</div>
-                    <h3>الشات بوت الذكي</h3>
-                    <p>حلول مدعومة بالذكاء الاصطناعي</p>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Security Tools</div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon text-cyber-purple">🐛</div>
-                    <h3>Bug Bounty</h3>
-                    <p>البحث عن الثغرات</p>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Learning Paths</div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon text-cyber-orange">⚡</div>
-                    <h3>استجابة سريعة</h3>
-                    <p>دعم طوارئ 24/7</p>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Threat Monitoring</div>
                 </div>
             </div>
         </div>
@@ -664,63 +569,100 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="section-header">
-            <h2><span class="gradient-text">ميزاتنا المتقدمة</span></h2>
-            <p>نقدم خدمات شاملة لحماية مواقعكم وتطوير حلول ذكية مبتكرة</p>
+            <h2><span class="gradient-text">Platform Features</span></h2>
+            <p>Comprehensive cybersecurity solutions designed for professionals and enthusiasts</p>
         </div>
 
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>أمان متقدم</h3>
+                <div class="feature-icon">📰</div>
+                <h3>Automated News Feed</h3>
                 <p>
-                    نستخدم أحدث تقنيات الأمان لحماية مواقعكم من التهديدات السيبرانية المختلفة.
-                    فريقنا مدرب على أحدث أساليب الحماية والدفاع.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>أداء فائق</h3>
-                <p>
-                    حلولنا مصممة لتوفير أداء عالي وسرعة استجابة ممتازة.
-                    نضمن تجربة مستخدم سلسة ومرضية.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>دقة عالية</h3>
-                <p>
-                    نتائج دقيقة ومفصلة في تقييم الأمان واكتشاف الثغرات.
-                    تقارير شاملة وواضحة لفهم أفضل للمخاطر.
+                    Stay updated with the latest cybersecurity news from trusted sources worldwide. 
+                    Our AI-powered system curates and categorizes news for easy consumption.
                 </p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">🛠️</div>
-                <h3>دعم مستمر</h3>
+                <h3>Security Tools Hub</h3>
                 <p>
-                    فريق دعم متاح على مدار الساعة لمساعدتكم في أي وقت.
-                    صيانة دورية وتحديثات أمنية مستمرة.
+                    Access a comprehensive collection of cybersecurity tools for penetration testing, 
+                    vulnerability assessment, and security analysis.
                 </p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3>حلول مبتكرة</h3>
+                <div class="feature-icon">📚</div>
+                <h3>Learning Resources</h3>
                 <p>
-                    نطور حلول مخصصة تناسب احتياجاتكم الخاصة.
-                    استخدام أحدث تقنيات الذكاء الاصطناعي والتعلم الآلي.
+                    Enhance your cybersecurity knowledge with curated learning materials, 
+                    tutorials, and hands-on labs for all skill levels.
                 </p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>تحليل متعمق</h3>
+                <div class="feature-icon">🗺️</div>
+                <h3>Career Roadmap</h3>
                 <p>
-                    تحليل شامل للبيانات وتقديم رؤى قيمة.
-                    تقارير مفصلة تساعد في اتخاذ قرارات مدروسة.
+                    Navigate your cybersecurity career with personalized roadmaps, 
+                    certification guides, and skill assessment tools.
                 </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Threat Intelligence</h3>
+                <p>
+                    Real-time threat intelligence feeds and analysis to help you stay 
+                    ahead of emerging cyber threats and vulnerabilities.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Community Hub</h3>
+                <p>
+                    Connect with cybersecurity professionals, share knowledge, 
+                    and collaborate on security projects and research.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="section-header">
+            <h2><span class="gradient-text">Latest Security News</span></h2>
+            <p>Stay informed with the most recent cybersecurity developments</p>
+        </div>
+
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">🔒</div>
+                <div class="news-content">
+                    <div class="news-date">December 25, 2024</div>
+                    <h3 class="news-title">New Zero-Day Vulnerability Discovered</h3>
+                    <p class="news-description">Security researchers have identified a critical vulnerability affecting millions of devices worldwide...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-image">🛡️</div>
+                <div class="news-content">
+                    <div class="news-date">December 24, 2024</div>
+                    <h3 class="news-title">AI-Powered Cyber Defense Systems</h3>
+                    <p class="news-description">Latest developments in artificial intelligence for cybersecurity defense and threat detection...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-image">⚠️</div>
+                <div class="news-content">
+                    <div class="news-date">December 23, 2024</div>
+                    <h3 class="news-title">Ransomware Attack Trends 2024</h3>
+                    <p class="news-description">Analysis of the latest ransomware attack patterns and prevention strategies for organizations...</p>
+                </div>
             </div>
         </div>
     </section>
@@ -729,268 +671,6 @@
     <button class="scroll-top" id="scrollTop">↑</button>
 
     <script>
-        // Security Configuration
-        const SecurityConfig = {
-            maxRequestsPerMinute: 60,
-            maxRequestsPerHour: 1000,
-            suspiciousKeywords: ['script', 'eval', 'function', 'onload', 'onerror', 'javascript:', 'data:', 'vbscript:'],
-            blockedUserAgents: ['bot', 'crawler', 'spider', 'scraper'],
-            enableHoneypot: true,
-            enableRateLimit: true,
-            enableXSSProtection: true,
-            enableCSRFProtection: true
-        };
-
-        // Security System
-        class WebSecurity {
-            constructor() {
-                this.requestCount = {
-                    minute: 0,
-                    hour: 0,
-                    lastMinute: Date.now(),
-                    lastHour: Date.now()
-                };
-                this.sessionToken = this.generateSessionToken();
-                this.initSecurity();
-            }
-
-            generateSessionToken() {
-                return 'SEC_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-            }
-
-            initSecurity() {
-                this.protectAgainstDevTools();
-                this.protectAgainstRightClick();
-                this.protectAgainstKeyboardShortcuts();
-                this.monitorSuspiciousActivity();
-                this.enableHoneypotProtection();
-                this.enableRateLimiting();
-                this.protectAgainstXSS();
-                this.enableCSRFProtection();
-                this.monitorUserAgent();
-                this.enableClickjackingProtection();
-            }
-
-            // XSS Protection
-            protectAgainstXSS() {
-                const originalInnerHTML = Element.prototype.innerHTML;
-                Element.prototype.innerHTML = function(value) {
-                    if (typeof value === 'string') {
-                        value = this.sanitizeInput(value);
-                    }
-                    return originalInnerHTML.call(this, value);
-                }.bind(this);
-            }
-
-            sanitizeInput(input) {
-                const div = document.createElement('div');
-                div.textContent = input;
-                return div.innerHTML;
-            }
-
-            // CSRF Protection
-            enableCSRFProtection() {
-                // Add CSRF token to forms
-                const forms = document.querySelectorAll('form');
-                forms.forEach(form => {
-                    const csrfInput = document.createElement('input');
-                    csrfInput.type = 'hidden';
-                    csrfInput.name = 'csrf_token';
-                    csrfInput.value = this.sessionToken;
-                    form.appendChild(csrfInput);
-                });
-            }
-
-            // Rate Limiting
-            enableRateLimiting() {
-                if (!SecurityConfig.enableRateLimit) return;
-
-                setInterval(() => {
-                    const now = Date.now();
-                    
-                    // Reset minute counter
-                    if (now - this.requestCount.lastMinute > 60000) {
-                        this.requestCount.minute = 0;
-                        this.requestCount.lastMinute = now;
-                    }
-                    
-                    // Reset hour counter
-                    if (now - this.requestCount.lastHour > 3600000) {
-                        this.requestCount.hour = 0;
-                        this.requestCount.lastHour = now;
-                    }
-                }, 1000);
-            }
-
-            checkRateLimit() {
-                this.requestCount.minute++;
-                this.requestCount.hour++;
-                
-                if (this.requestCount.minute > SecurityConfig.maxRequestsPerMinute) {
-                    this.showRateLimitWarning();
-                    return false;
-                }
-                
-                if (this.requestCount.hour > SecurityConfig.maxRequestsPerHour) {
-                    this.triggerSecurityBlock('Rate limit exceeded');
-                    return false;
-                }
-                
-                return true;
-            }
-
-            showRateLimitWarning() {
-                const warning = document.getElementById('rateLimitWarning');
-                warning.style.display = 'block';
-                setTimeout(() => {
-                    warning.style.display = 'none';
-                }, 3000);
-            }
-
-            // Honeypot Protection
-            enableHoneypotProtection() {
-                if (!SecurityConfig.enableHoneypot) return;
-
-                const honeypotFields = document.querySelectorAll('.honeypot');
-                honeypotFields.forEach(field => {
-                    field.addEventListener('input', () => {
-                        this.triggerSecurityBlock('Honeypot triggered - Bot detected');
-                    });
-                });
-            }
-
-            // Monitor User Agent
-            monitorUserAgent() {
-                const userAgent = navigator.userAgent.toLowerCase();
-                SecurityConfig.blockedUserAgents.forEach(blocked => {
-                    if (userAgent.includes(blocked)) {
-                        this.triggerSecurityBlock('Suspicious user agent detected');
-                    }
-                });
-            }
-
-            // Clickjacking Protection
-            enableClickjackingProtection() {
-                if (window.top !== window.self) {
-                    this.triggerSecurityBlock('Clickjacking attempt detected');
-                }
-            }
-
-            // Dev Tools Protection
-            protectAgainstDevTools() {
-                let devtools = {
-                    open: false,
-                    orientation: null
-                };
-                
-                setInterval(() => {
-                    if (window.outerHeight - window.innerHeight > 200 || 
-                        window.outerWidth - window.innerWidth > 200) {
-                        if (!devtools.open) {
-                            devtools.open = true;
-                            this.logSuspiciousActivity('Developer tools opened');
-                        }
-                    } else {
-                        devtools.open = false;
-                    }
-                }, 500);
-            }
-
-            // Right Click Protection
-            protectAgainstRightClick() {
-                document.addEventListener('contextmenu', (e) => {
-                    e.preventDefault();
-                    this.logSuspiciousActivity('Right click attempt');
-                    return false;
-                });
-            }
-
-            // Keyboard Shortcuts Protection
-            protectAgainstKeyboardShortcuts() {
-                document.addEventListener('keydown', (e) => {
-                    // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-                    if (e.keyCode === 123 || 
-                        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
-                        (e.ctrlKey && e.keyCode === 85)) {
-                        e.preventDefault();
-                        this.logSuspiciousActivity('Keyboard shortcut blocked: ' + e.keyCode);
-                        return false;
-                    }
-                });
-            }
-
-            // Monitor Suspicious Activity
-            monitorSuspiciousActivity() {
-                // Monitor for suspicious input
-                document.addEventListener('input', (e) => {
-                    const value = e.target.value.toLowerCase();
-                    SecurityConfig.suspiciousKeywords.forEach(keyword => {
-                        if (value.includes(keyword)) {
-                            this.logSuspiciousActivity('Suspicious input detected: ' + keyword);
-                        }
-                    });
-                });
-
-                // Monitor for rapid clicks
-                let clickCount = 0;
-                document.addEventListener('click', () => {
-                    clickCount++;
-                    setTimeout(() => clickCount--, 1000);
-                    
-                    if (clickCount > 10) {
-                        this.logSuspiciousActivity('Rapid clicking detected');
-                    }
-                });
-            }
-
-            logSuspiciousActivity(activity) {
-                console.log(`[SECURITY] ${new Date().toISOString()}: ${activity}`);
-                
-                // Send to security monitoring (if backend available)
-                // this.sendSecurityLog(activity);
-            }
-
-            triggerSecurityBlock(reason) {
-                console.error(`[SECURITY BLOCK] ${reason}`);
-                document.getElementById('securityOverlay').style.display = 'flex';
-                
-                // Disable all interactions
-                document.body.style.pointerEvents = 'none';
-                
-                // Optional: redirect to security page
-                setTimeout(() => {
-                    // window.location.href = '/security-block.html';
-                }, 3000);
-            }
-
-            // Clean URLs and prevent XSS through URL
-            sanitizeURL() {
-                const url = window.location.href;
-                SecurityConfig.suspiciousKeywords.forEach(keyword => {
-                    if (url.toLowerCase().includes(keyword)) {
-                        this.triggerSecurityBlock('Malicious URL detected');
-                    }
-                });
-            }
-        }
-
-        // Initialize Security System
-        const webSecurity = new WebSecurity();
-
-        // Enhanced Link Tracking with Security
-        function secureNavigate(element) {
-            if (!webSecurity.checkRateLimit()) {
-                return false;
-            }
-
-            const action = element.getAttribute('data-action');
-            const section = element.getAttribute('data-section');
-            
-            webSecurity.logSuspiciousActivity(`Navigation: ${action || section || 'unknown'}`);
-            
-            return true;
-        }
-
         // Matrix Background Effect
         function createMatrixRain() {
             const matrixBg = document.getElementById('matrixBg');
@@ -1012,25 +692,18 @@
             const navLinks = document.getElementById('navLinks');
             const menuToggle = document.getElementById('menuToggle');
             
-            menuToggle.addEventListener('click', (e) => {
-                if (!webSecurity.checkRateLimit()) return;
-                
+            menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
             });
         }
 
-        // Smooth Scrolling with Security
+        // Smooth Scrolling
         function smoothScroll() {
             const links = document.querySelectorAll('a[href^="#"]');
             
             links.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    if (!secureNavigate(link)) {
-                        e.preventDefault();
-                        return;
-                    }
-                    
                     e.preventDefault();
                     const targetId = link.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
@@ -1064,8 +737,6 @@
             });
             
             scrollTop.addEventListener('click', () => {
-                if (!webSecurity.checkRateLimit()) return;
-                
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -1086,9 +757,9 @@
             });
         }
 
-        // Animation on Scroll (Simple version)
+        // Animation on Scroll
         function animateOnScroll() {
-            const cards = document.querySelectorAll('.service-card, .feature-card');
+            const cards = document.querySelectorAll('.stat-card, .feature-card, .news-card');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1103,26 +774,7 @@
             });
         }
 
-        // Initialize all functions
-        document.addEventListener('DOMContentLoaded', () => {
-            // Sanitize URL on load
-            webSecurity.sanitizeURL();
-            
-            createMatrixRain();
-            toggleMobileMenu();
-            smoothScroll();
-            scrollToTopButton();
-            navbarScroll();
-            animateOnScroll();
-            
-            // Security Status Check
-            setInterval(() => {
-                const status = document.querySelector('.security-status');
-                status.style.animation = 'pulse 2s infinite';
-            }, 5000);
-        });
-
-        // Add some interactive effects with security
+        // Add interactive mouse effects
         document.addEventListener('mousemove', (e) => {
             const floatingElements = document.querySelectorAll('.floating-element');
             const x = e.clientX / window.innerWidth;
@@ -1134,26 +786,15 @@
             });
         });
 
-        // Page Visibility API for security monitoring
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                webSecurity.logSuspiciousActivity('Page hidden - possible tab switching');
-            } else {
-                webSecurity.logSuspiciousActivity('Page visible - user returned');
-            }
+        // Initialize all functions
+        document.addEventListener('DOMContentLoaded', () => {
+            createMatrixRain();
+            toggleMobileMenu();
+            smoothScroll();
+            scrollToTopButton();
+            navbarScroll();
+            animateOnScroll();
         });
-
-        // Disable printing
-        window.addEventListener('beforeprint', (e) => {
-            e.preventDefault();
-            webSecurity.logSuspiciousActivity('Print attempt blocked');
-            return false;
-        });
-
-        // Monitor for unauthorized iframe embedding
-        if (window.top !== window.self) {
-            webSecurity.triggerSecurityBlock('Unauthorized iframe embedding detected');
-        }
     </script>
 </body>
 </html>
