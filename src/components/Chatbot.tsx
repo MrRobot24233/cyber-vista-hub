@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Send, Bot, User, Minimize2, Maximize2, X } from 'lucide-react';
-import { pipeline, Pipeline } from '@huggingface/transformers';
+import { pipeline } from '@huggingface/transformers';
 
 interface Message {
   id: string;
@@ -25,7 +25,7 @@ const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [generator, setGenerator] = useState<Pipeline | null>(null);
+  const [generator, setGenerator] = useState<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Initialize the AI model
