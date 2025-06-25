@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberVista Hub - Cybersecurity News, Tools & Learning</title>
-    <meta name="description" content="Your comprehensive cybersecurity platform featuring automated news feeds, security tools, learning resources, and career roadmaps." />
-    
+    <title>SECPULSE - Cybersecurity Expert & Smart Chatbot Developer</title>
+    <meta name="description" content="Expert in penetration testing, website security, bug bounty, and AI-powered chatbot development. Protecting websites and developing smart solutions for businesses.">
     <style>
         * {
             margin: 0;
@@ -15,47 +14,22 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0A0A0B 0%, #1a1a2e 50%, #16213e 100%);
-            color: white;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0b 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Matrix Background Effect */
-        .matrix-bg {
+        /* Matrix Background */
+        #matrix-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            opacity: 0.1;
             z-index: -1;
-        }
-
-        .matrix-char {
-            position: absolute;
-            color: #00FF88;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            animation: matrix 20s linear infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes matrix {
-            0% { transform: translateY(-100vh); }
-            100% { transform: translateY(100vh); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            opacity: 0.1;
         }
 
         /* Navigation */
@@ -64,24 +38,23 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
             padding: 1rem 2rem;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%);
             -webkit-background-clip: text;
@@ -93,15 +66,13 @@
             display: flex;
             list-style: none;
             gap: 2rem;
-            align-items: center;
         }
 
         .nav-links a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             transition: color 0.3s ease;
             position: relative;
-            font-weight: 500;
         }
 
         .nav-links a:hover {
@@ -111,25 +82,16 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
             bottom: -5px;
             left: 0;
+            width: 0;
+            height: 2px;
             background: #00D4FF;
             transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
             width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
         }
 
         /* Hero Section */
@@ -141,113 +103,58 @@
             text-align: center;
             padding: 0 2rem;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-bg-effects {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, transparent 50%, rgba(139, 92, 246, 0.05) 100%);
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-1 {
-            top: 80px;
-            left: 40px;
-            width: 128px;
-            height: 128px;
-            background: rgba(0, 212, 255, 0.1);
-        }
-
-        .floating-2 {
-            bottom: 80px;
-            right: 40px;
-            width: 192px;
-            height: 192px;
-            background: rgba(139, 92, 246, 0.1);
-            animation-delay: 1s;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            z-index: 10;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: bold;
+        .hero-content h1 {
+            font-size: 4rem;
             margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .gradient-text {
             background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero h2 {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            color: #c7c7c7;
-            margin-bottom: 2rem;
-            font-weight: 400;
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #cccccc;
         }
 
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #9ca3af;
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #aaaaaa;
             max-width: 800px;
-            margin: 0 auto 3rem;
             line-height: 1.6;
         }
 
-        /* Buttons */
-        .btn-group {
+        .cta-buttons {
             display: flex;
-            flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
-            margin-bottom: 4rem;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 15px 30px;
+            background: transparent;
+            border: 2px solid #00D4FF;
+            color: #00D4FF;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-weight: bold;
             transition: all 0.3s ease;
-            border: 2px solid;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
 
-        .btn-primary {
-            background: transparent;
-            border-color: #00D4FF;
-            color: #00D4FF;
-        }
-
-        .btn-primary:hover {
+        .btn:hover {
             background: #00D4FF;
             color: #000;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
         .btn-secondary {
-            background: transparent;
             border-color: #8B5CF6;
             color: #8B5CF6;
         }
@@ -255,33 +162,109 @@
         .btn-secondary:hover {
             background: #8B5CF6;
             color: #000;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
         }
 
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
-        .stat-card {
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
+            padding: 2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 212, 255, 0.4);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #00D4FF;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text p {
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
         }
 
         .stat-number {
@@ -292,509 +275,617 @@
         }
 
         .stat-label {
-            color: #9ca3af;
+            color: #cccccc;
             font-size: 0.9rem;
         }
 
-        /* Features Section */
-        .features {
+        /* Skills Section */
+        .skills {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #8B5CF6;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .skill-progress {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 8px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #8B5CF6, #00D4FF);
+            border-radius: 10px;
+            transition: width 2s ease;
+        }
+
+        /* Contact Section */
+        .contact {
             padding: 6rem 2rem;
             background: rgba(0, 0, 0, 0.2);
         }
 
-        .section-header {
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            margin-bottom: 4rem;
         }
 
-        .section-header h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
+        .contact-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 212, 255, 0.4);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .feature-card p {
-            color: #9ca3af;
-            line-height: 1.6;
-        }
-
-        /* News Section */
-        .news-section {
-            padding: 6rem 2rem;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-top: 3rem;
         }
 
-        .news-card {
+        .contact-card {
             background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 12px;
-            overflow: hidden;
+            padding: 2rem;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .news-card:hover {
+        .contact-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 212, 255, 0.4);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
         }
 
-        .news-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-        }
-
-        .news-date {
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
             color: #00D4FF;
-            font-size: 0.9rem;
+        }
+
+        .contact-card h3 {
+            color: #ffffff;
             margin-bottom: 0.5rem;
         }
 
-        .news-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: white;
+        .contact-card p {
+            color: #cccccc;
+            font-size: 0.9rem;
         }
 
-        .news-description {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
         }
 
         /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+            color: #000;
+            border: none;
+            border-radius: 50%;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background: rgba(0, 212, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            color: #00D4FF;
-            display: none;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
+            z-index: 1000;
             font-size: 1.2rem;
         }
 
-        .scroll-top:hover {
-            background: #00D4FF;
-            color: #000;
-            transform: scale(1.1);
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .scroll-top.show {
-            display: flex;
-            animation: fadeIn 0.3s ease;
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            background: rgba(139, 92, 246, 0.1);
+            animation-delay: 2s;
+            right: 10%;
+            top: 20%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.95);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1rem;
             }
 
-            .nav-links.active {
-                display: flex;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
 
-            .menu-toggle {
-                display: block;
+            .hero-content h2 {
+                font-size: 1.5rem;
             }
 
-            .btn-group {
+            .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .features-grid {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-stats {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .news-grid {
-                grid-template-columns: 1fr;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-            .floating-1, .floating-2 {
-                display: none;
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Matrix Effect Styles */
+        .matrix-char {
+            position: absolute;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            opacity: 0.7;
+            animation: matrix-fall 20s linear infinite;
+        }
+
+        @keyframes matrix-fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Matrix Background -->
-    <div class="matrix-bg" id="matrixBg"></div>
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix-canvas"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">CyberVista Hub</div>
-            <ul class="nav-links" id="navLinks">
+            <div class="logo">SECPULSE</div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#learning">Learning</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="menu-toggle" id="menuToggle">☰</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-bg-effects"></div>
-        <div class="floating-element floating-1"></div>
-        <div class="floating-element floating-2"></div>
-        
-        <div class="hero-content">
-            <h1>
-                <span class="gradient-text">Cyber</span>Vista Hub
-            </h1>
-            <h2>Your Ultimate Cybersecurity Platform</h2>
-            <p>
-                Stay ahead of cyber threats with our comprehensive platform featuring automated news feeds, 
-                cutting-edge security tools, expert learning resources, and personalized career roadmaps.
-            </p>
-            
-            <div class="btn-group">
-                <a href="#features" class="btn btn-primary">Explore Features</a>
-                <a href="#news" class="btn btn-secondary">Latest News</a>
+        <div class="floating-element" style="top: 10%; left: 10%;"></div>
+        <div class="floating-element"></div>
+        <div class="hero-content fade-in-up">
+            <h1>SECPULSE</h1>
+            <h2>Cybersecurity Expert & Smart Chatbot Developer</h2>
+            <p>Expert in penetration testing, website security, bug bounty hunting, and AI-powered chatbot development. I protect your websites and develop smart solutions for your business with cutting-edge cybersecurity practices.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn">Get Free Consultation</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
+        </div>
+    </section>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Security News</div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Security Tools</div>
-                </div>
-                
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">My Specialized Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Penetration Testing</h3>
+                <p>Comprehensive website security testing and vulnerability discovery before hackers exploit them. I conduct thorough security assessments to identify weaknesses in your web applications and provide detailed reports with remediation steps.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Smart Chatbots</h3>
+                <p>AI-powered chatbot development that can be integrated into all platforms and applications. I create intelligent conversational AI solutions that enhance customer experience and automate business processes effectively.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🐛</div>
+                <h3>Bug Bounty</h3>
+                <p>Vulnerability research services and participation in global Bug Bounty programs. I help organizations discover security flaws through ethical hacking and responsible disclosure practices, ensuring your systems stay secure.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Performance Optimization</h3>
+                <p>Website security and speed optimization to ensure excellent user experience. I optimize your web applications for both security and performance, implementing best practices for faster load times and secure operations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Security Consultation</h3>
+                <p>Specialized cybersecurity consulting and security risk assessment for organizations. I provide expert guidance on security architecture, policy development, and implementation of robust security frameworks.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Post-Hack Repair</h3>
+                <p>Emergency services to repair hacked websites and restore their secure operation. I provide rapid response to security incidents, malware removal, and complete system restoration with enhanced security measures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Who Am I?</h2>
+                <p>I am a dedicated cybersecurity specialist with extensive experience in website security and AI-powered smart chatbot development. My passion lies in protecting digital assets and creating intelligent solutions that drive business success.</p>
+                <p>With years of experience in penetration testing, vulnerability research, and chatbot development, I help businesses secure their digital presence while implementing cutting-edge AI technologies to enhance customer interactions.</p>
+                <p>My expertise spans across multiple domains including web application security, ethical hacking, bug bounty hunting, and conversational AI development. I stay updated with the latest security threats and AI advancements to provide the most effective solutions.</p>
+            </div>
+            <div class="about-stats">
                 <div class="stat-card">
                     <div class="stat-number">100+</div>
-                    <div class="stat-label">Learning Paths</div>
+                    <div class="stat-label">Websites Secured</div>
                 </div>
-                
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Chatbots Developed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Vulnerabilities Found</div>
+                </div>
                 <div class="stat-card">
                     <div class="stat-number">24/7</div>
-                    <div class="stat-label">Threat Monitoring</div>
+                    <div class="stat-label">Emergency Support</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="section-header">
-            <h2><span class="gradient-text">Platform Features</span></h2>
-            <p>Comprehensive cybersecurity solutions designed for professionals and enthusiasts</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📰</div>
-                <h3>Automated News Feed</h3>
-                <p>
-                    Stay updated with the latest cybersecurity news from trusted sources worldwide. 
-                    Our AI-powered system curates and categorizes news for easy consumption.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🛠️</div>
-                <h3>Security Tools Hub</h3>
-                <p>
-                    Access a comprehensive collection of cybersecurity tools for penetration testing, 
-                    vulnerability assessment, and security analysis.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>Learning Resources</h3>
-                <p>
-                    Enhance your cybersecurity knowledge with curated learning materials, 
-                    tutorials, and hands-on labs for all skill levels.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🗺️</div>
-                <h3>Career Roadmap</h3>
-                <p>
-                    Navigate your cybersecurity career with personalized roadmaps, 
-                    certification guides, and skill assessment tools.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>Threat Intelligence</h3>
-                <p>
-                    Real-time threat intelligence feeds and analysis to help you stay 
-                    ahead of emerging cyber threats and vulnerabilities.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Community Hub</h3>
-                <p>
-                    Connect with cybersecurity professionals, share knowledge, 
-                    and collaborate on security projects and research.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="news-section">
-        <div class="section-header">
-            <h2><span class="gradient-text">Latest Security News</span></h2>
-            <p>Stay informed with the most recent cybersecurity developments</p>
-        </div>
-
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="news-image">🔒</div>
-                <div class="news-content">
-                    <div class="news-date">December 25, 2024</div>
-                    <h3 class="news-title">New Zero-Day Vulnerability Discovered</h3>
-                    <p class="news-description">Security researchers have identified a critical vulnerability affecting millions of devices worldwide...</p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🔒</div>
+                <h3>Web Application Security</h3>
+                <p>OWASP Top 10, SQL Injection, XSS, CSRF, and advanced vulnerability assessment</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: 95%;"></div>
                 </div>
             </div>
-
-            <div class="news-card">
-                <div class="news-image">🛡️</div>
-                <div class="news-content">
-                    <div class="news-date">December 24, 2024</div>
-                    <h3 class="news-title">AI-Powered Cyber Defense Systems</h3>
-                    <p class="news-description">Latest developments in artificial intelligence for cybersecurity defense and threat detection...</p>
+            <div class="skill-card">
+                <div class="skill-icon">🔍</div>
+                <h3>Penetration Testing</h3>
+                <p>Network security, social engineering, and comprehensive security assessments</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: 90%;"></div>
                 </div>
             </div>
-
-            <div class="news-card">
-                <div class="news-image">⚠️</div>
-                <div class="news-content">
-                    <div class="news-date">December 23, 2024</div>
-                    <h3 class="news-title">Ransomware Attack Trends 2024</h3>
-                    <p class="news-description">Analysis of the latest ransomware attack patterns and prevention strategies for organizations...</p>
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3>AI Chatbot Development</h3>
+                <p>Natural Language Processing, Machine Learning, and conversational AI</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: 88%;"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🛠️</div>
+                <h3>Security Tools</h3>
+                <p>Burp Suite, Metasploit, Nmap, Wireshark, and custom security scripts</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: 92%;"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Programming</h3>
+                <p>Python, JavaScript, PHP, Java, and security-focused development</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">☁️</div>
+                <h3>Cloud Security</h3>
+                <p>AWS, Azure, GCP security configurations and cloud penetration testing</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: 80%;"></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Me</h2>
+            <p style="color: #cccccc; font-size: 1.2rem; margin-bottom: 2rem;">Ready to help you secure your website or develop a smart chatbot</p>
+            <div class="contact-links">
+                <a href="https://www.fiverr.com/s/42kB1ed" target="_blank" class="contact-card">
+                    <div class="contact-icon">🟢</div>
+                    <h3>Fiverr</h3>
+                    <p>Professional services on Fiverr platform</p>
+                </a>
+                <a href="https://www.freelancer.com/u/SecPulse?frm=SecPulse&sb=t" target="_blank" class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h3>Freelancer</h3>
+                    <p>Freelancer.com profile</p>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100070026216872" target="_blank" class="contact-card">
+                    <div class="contact-icon">📘</div>
+                    <h3>Facebook</h3>
+                    <p>Connect on Facebook</p>
+                </a>
+                <a href="https://www.instagram.com/_bdl._.fateh_/" target="_blank" class="contact-card">
+                    <div class="contact-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p>Follow on Instagram</p>
+                </a>
+            </div>
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(0, 0, 0, 0.4); border-radius: 12px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                <h3 style="color: #00D4FF; margin-bottom: 1rem;">Ready to Start?</h3>
+                <p style="color: #cccccc;">Contact me through any of the platforms above for a free consultation and assessment of your security needs. I'm available 24/7 for emergency security incidents.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 SECPULSE. All rights reserved. | Cybersecurity Expert & Smart Chatbot Developer</p>
+    </footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop">↑</button>
 
     <script>
-        // Matrix Background Effect
-        function createMatrixRain() {
-            const matrixBg = document.getElementById('matrixBg');
-            const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*()_+-={}[]|;:,.<>?';
-            
-            for (let i = 0; i < 50; i++) {
-                const char = document.createElement('div');
-                char.className = 'matrix-char';
-                char.textContent = characters[Math.floor(Math.random() * characters.length)];
-                char.style.left = Math.random() * 100 + '%';
-                char.style.animationDelay = Math.random() * 20 + 's';
-                char.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                matrixBg.appendChild(char);
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px arial';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
             }
         }
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuToggle = document.getElementById('menuToggle');
-            
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-            });
-        }
+        setInterval(drawMatrix, 35);
 
-        // Smooth Scrolling
-        function smoothScroll() {
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            links.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                    
-                    // Close mobile menu if open
-                    const navLinks = document.getElementById('navLinks');
-                    const menuToggle = document.getElementById('menuToggle');
-                    navLinks.classList.remove('active');
-                    menuToggle.textContent = '☰';
-                });
-            });
-        }
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
 
-        // Scroll to Top Button
-        function scrollToTopButton() {
-            const scrollTop = document.getElementById('scrollTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    scrollTop.classList.add('show');
-                } else {
-                    scrollTop.classList.remove('show');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
-            
-            scrollTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
+        });
 
-        // Navbar Background on Scroll
-        function navbarScroll() {
-            const navbar = document.querySelector('.navbar');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-                } else {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.8)';
-                }
-            });
-        }
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
 
-        // Animation on Scroll
-        function animateOnScroll() {
-            const cards = document.querySelectorAll('.stat-card, .feature-card, .news-card');
-            
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate skill progress bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress-bar');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+                        const bar = entry.target;
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                        observer.unobserve(bar);
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            cards.forEach(card => {
-                observer.observe(card);
-            });
+            }, { threshold: 0.5 });
+
+            skillBars.forEach(bar => observer.observe(bar));
         }
 
-        // Add interactive mouse effects
-        document.addEventListener('mousemove', (e) => {
-            const floatingElements = document.querySelectorAll('.floating-element');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            floatingElements.forEach((element, index) => {
-                const speed = (index + 1) * 0.5;
-                element.style.transform = `translate(${x * 20 * speed}px, ${y * 20 * speed}px)`;
-            });
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            animateSkillBars();
         });
 
-        // Initialize all functions
-        document.addEventListener('DOMContentLoaded', () => {
-            createMatrixRain();
-            toggleMobileMenu();
-            smoothScroll();
-            scrollToTopButton();
-            navbarScroll();
-            animateOnScroll();
+        // Add fade-in animation to elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and skill cards
+        document.querySelectorAll('.service-card, .skill-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
+
+        // Security headers and protection (Basic implementation)
+        console.log('%cSECPULSE Security Notice', 'color: #00D4FF; font-size: 20px; font-weight: bold;');
+        console.log('%cThis website is protected by advanced security measures.', 'color: #ffffff; font-size: 14px;');
+        console.log('%cUnauthorized access attempts are monitored and logged.', 'color: #ff6b6b; font-size: 12px;');
+
+        // Disable right-click context menu (basic protection)
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            console.warn('Right-click disabled for security purposes');
+        });
+
+        // Disable common developer shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                console.warn('Developer tools access restricted');
+            }
+        });
+
+        // Monitor for developer tools
+        let devtools = {open: false, orientation: null};
+        const threshold = 160;
+
+        function detectDevTools() {
+            if (window.outerHeight - window.innerHeight > threshold || 
+                window.outerWidth - window.innerWidth > threshold) {
+                if (!devtools.open) {
+                    devtools.open = true;
+                    console.warn('Developer tools detected and monitored');
+                }
+            } else {
+                devtools.open = false;
+            }
+        }
+
+        setInterval(detectDevTools, 500);
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
     </script>
 </body>
 </html>
