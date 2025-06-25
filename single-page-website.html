@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecPulse - Website Security & Smart Chatbots</title>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Anti-Bot Detection -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    
     <style>
         * {
             margin: 0;
@@ -18,6 +32,61 @@
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
+            /* Disable text selection for security */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Re-enable text selection for content areas */
+        p, .hero-content, .section-header, .feature-card p {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        /* Anti-Inspection Protection */
+        .protected-content {
+            pointer-events: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Security Overlay (Hidden) */
+        .security-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Rate Limiting Visual Indicator */
+        .rate-limit-warning {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 165, 0, 0.9);
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 9999;
+            font-weight: bold;
         }
 
         /* Matrix Background Effect */
@@ -127,6 +196,29 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+        }
+
+        /* Security Status Indicator */
+        .security-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid rgba(0, 255, 0, 0.4);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
         }
 
         /* Hero Section */
@@ -450,9 +542,58 @@
         .text-cyber-green { color: #00FF88; }
         .text-cyber-purple { color: #8B5CF6; }
         .text-cyber-orange { color: #FF8C00; }
+
+        /* Additional Security Styles */
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            visibility: hidden;
+        }
+
+        .security-badge {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 5px;
+            padding: 5px;
+            writing-mode: vertical-lr;
+            font-size: 12px;
+            color: #00FF88;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
+    <!-- Security Overlay for Threats -->
+    <div class="security-overlay" id="securityOverlay">
+        <div>
+            <h2>⚠️ تم اكتشاف نشاط مشبوه</h2>
+            <p>تم حظر الوصول لأسباب أمنية</p>
+        </div>
+    </div>
+
+    <!-- Rate Limiting Warning -->
+    <div class="rate-limit-warning" id="rateLimitWarning">
+        تحذير: عدد كبير من الطلبات!
+    </div>
+
+    <!-- Security Badge -->
+    <div class="security-badge">
+        SecPulse Protected
+    </div>
+
+    <!-- Security Status Indicator -->
+    <div class="security-status" title="الموقع محمي">
+        🛡️
+    </div>
+
+    <!-- Honeypot Fields (Hidden) -->
+    <input type="text" name="username" class="honeypot" tabindex="-1" autocomplete="off">
+    <input type="email" name="email" class="honeypot" tabindex="-1" autocomplete="off">
+
     <!-- Matrix Background -->
     <div class="matrix-bg" id="matrixBg"></div>
 
@@ -461,11 +602,11 @@
         <div class="nav-container">
             <div class="logo">SECPULSE</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#features">الميزات</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
+                <li><a href="#home" data-section="home">الرئيسية</a></li>
+                <li><a href="#features" data-section="features">الميزات</a></li>
+                <li><a href="#services" data-section="services">الخدمات</a></li>
+                <li><a href="#about" data-section="about">من نحن</a></li>
+                <li><a href="#contact" data-section="contact">اتصل بنا</a></li>
             </ul>
             <button class="menu-toggle" id="menuToggle">☰</button>
         </div>
@@ -488,8 +629,8 @@
             </p>
             
             <div class="btn-group">
-                <a href="#contact" class="btn btn-primary">احصل على استشارة مجانية</a>
-                <a href="#about" class="btn btn-secondary">اعرف المزيد</a>
+                <a href="#contact" class="btn btn-primary" data-action="consultation">احصل على استشارة مجانية</a>
+                <a href="#about" class="btn btn-secondary" data-action="learn-more">اعرف المزيد</a>
             </div>
 
             <div class="services-grid">
@@ -588,6 +729,268 @@
     <button class="scroll-top" id="scrollTop">↑</button>
 
     <script>
+        // Security Configuration
+        const SecurityConfig = {
+            maxRequestsPerMinute: 60,
+            maxRequestsPerHour: 1000,
+            suspiciousKeywords: ['script', 'eval', 'function', 'onload', 'onerror', 'javascript:', 'data:', 'vbscript:'],
+            blockedUserAgents: ['bot', 'crawler', 'spider', 'scraper'],
+            enableHoneypot: true,
+            enableRateLimit: true,
+            enableXSSProtection: true,
+            enableCSRFProtection: true
+        };
+
+        // Security System
+        class WebSecurity {
+            constructor() {
+                this.requestCount = {
+                    minute: 0,
+                    hour: 0,
+                    lastMinute: Date.now(),
+                    lastHour: Date.now()
+                };
+                this.sessionToken = this.generateSessionToken();
+                this.initSecurity();
+            }
+
+            generateSessionToken() {
+                return 'SEC_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+            }
+
+            initSecurity() {
+                this.protectAgainstDevTools();
+                this.protectAgainstRightClick();
+                this.protectAgainstKeyboardShortcuts();
+                this.monitorSuspiciousActivity();
+                this.enableHoneypotProtection();
+                this.enableRateLimiting();
+                this.protectAgainstXSS();
+                this.enableCSRFProtection();
+                this.monitorUserAgent();
+                this.enableClickjackingProtection();
+            }
+
+            // XSS Protection
+            protectAgainstXSS() {
+                const originalInnerHTML = Element.prototype.innerHTML;
+                Element.prototype.innerHTML = function(value) {
+                    if (typeof value === 'string') {
+                        value = this.sanitizeInput(value);
+                    }
+                    return originalInnerHTML.call(this, value);
+                }.bind(this);
+            }
+
+            sanitizeInput(input) {
+                const div = document.createElement('div');
+                div.textContent = input;
+                return div.innerHTML;
+            }
+
+            // CSRF Protection
+            enableCSRFProtection() {
+                // Add CSRF token to forms
+                const forms = document.querySelectorAll('form');
+                forms.forEach(form => {
+                    const csrfInput = document.createElement('input');
+                    csrfInput.type = 'hidden';
+                    csrfInput.name = 'csrf_token';
+                    csrfInput.value = this.sessionToken;
+                    form.appendChild(csrfInput);
+                });
+            }
+
+            // Rate Limiting
+            enableRateLimiting() {
+                if (!SecurityConfig.enableRateLimit) return;
+
+                setInterval(() => {
+                    const now = Date.now();
+                    
+                    // Reset minute counter
+                    if (now - this.requestCount.lastMinute > 60000) {
+                        this.requestCount.minute = 0;
+                        this.requestCount.lastMinute = now;
+                    }
+                    
+                    // Reset hour counter
+                    if (now - this.requestCount.lastHour > 3600000) {
+                        this.requestCount.hour = 0;
+                        this.requestCount.lastHour = now;
+                    }
+                }, 1000);
+            }
+
+            checkRateLimit() {
+                this.requestCount.minute++;
+                this.requestCount.hour++;
+                
+                if (this.requestCount.minute > SecurityConfig.maxRequestsPerMinute) {
+                    this.showRateLimitWarning();
+                    return false;
+                }
+                
+                if (this.requestCount.hour > SecurityConfig.maxRequestsPerHour) {
+                    this.triggerSecurityBlock('Rate limit exceeded');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            showRateLimitWarning() {
+                const warning = document.getElementById('rateLimitWarning');
+                warning.style.display = 'block';
+                setTimeout(() => {
+                    warning.style.display = 'none';
+                }, 3000);
+            }
+
+            // Honeypot Protection
+            enableHoneypotProtection() {
+                if (!SecurityConfig.enableHoneypot) return;
+
+                const honeypotFields = document.querySelectorAll('.honeypot');
+                honeypotFields.forEach(field => {
+                    field.addEventListener('input', () => {
+                        this.triggerSecurityBlock('Honeypot triggered - Bot detected');
+                    });
+                });
+            }
+
+            // Monitor User Agent
+            monitorUserAgent() {
+                const userAgent = navigator.userAgent.toLowerCase();
+                SecurityConfig.blockedUserAgents.forEach(blocked => {
+                    if (userAgent.includes(blocked)) {
+                        this.triggerSecurityBlock('Suspicious user agent detected');
+                    }
+                });
+            }
+
+            // Clickjacking Protection
+            enableClickjackingProtection() {
+                if (window.top !== window.self) {
+                    this.triggerSecurityBlock('Clickjacking attempt detected');
+                }
+            }
+
+            // Dev Tools Protection
+            protectAgainstDevTools() {
+                let devtools = {
+                    open: false,
+                    orientation: null
+                };
+                
+                setInterval(() => {
+                    if (window.outerHeight - window.innerHeight > 200 || 
+                        window.outerWidth - window.innerWidth > 200) {
+                        if (!devtools.open) {
+                            devtools.open = true;
+                            this.logSuspiciousActivity('Developer tools opened');
+                        }
+                    } else {
+                        devtools.open = false;
+                    }
+                }, 500);
+            }
+
+            // Right Click Protection
+            protectAgainstRightClick() {
+                document.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    this.logSuspiciousActivity('Right click attempt');
+                    return false;
+                });
+            }
+
+            // Keyboard Shortcuts Protection
+            protectAgainstKeyboardShortcuts() {
+                document.addEventListener('keydown', (e) => {
+                    // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+                    if (e.keyCode === 123 || 
+                        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+                        (e.ctrlKey && e.keyCode === 85)) {
+                        e.preventDefault();
+                        this.logSuspiciousActivity('Keyboard shortcut blocked: ' + e.keyCode);
+                        return false;
+                    }
+                });
+            }
+
+            // Monitor Suspicious Activity
+            monitorSuspiciousActivity() {
+                // Monitor for suspicious input
+                document.addEventListener('input', (e) => {
+                    const value = e.target.value.toLowerCase();
+                    SecurityConfig.suspiciousKeywords.forEach(keyword => {
+                        if (value.includes(keyword)) {
+                            this.logSuspiciousActivity('Suspicious input detected: ' + keyword);
+                        }
+                    });
+                });
+
+                // Monitor for rapid clicks
+                let clickCount = 0;
+                document.addEventListener('click', () => {
+                    clickCount++;
+                    setTimeout(() => clickCount--, 1000);
+                    
+                    if (clickCount > 10) {
+                        this.logSuspiciousActivity('Rapid clicking detected');
+                    }
+                });
+            }
+
+            logSuspiciousActivity(activity) {
+                console.log(`[SECURITY] ${new Date().toISOString()}: ${activity}`);
+                
+                // Send to security monitoring (if backend available)
+                // this.sendSecurityLog(activity);
+            }
+
+            triggerSecurityBlock(reason) {
+                console.error(`[SECURITY BLOCK] ${reason}`);
+                document.getElementById('securityOverlay').style.display = 'flex';
+                
+                // Disable all interactions
+                document.body.style.pointerEvents = 'none';
+                
+                // Optional: redirect to security page
+                setTimeout(() => {
+                    // window.location.href = '/security-block.html';
+                }, 3000);
+            }
+
+            // Clean URLs and prevent XSS through URL
+            sanitizeURL() {
+                const url = window.location.href;
+                SecurityConfig.suspiciousKeywords.forEach(keyword => {
+                    if (url.toLowerCase().includes(keyword)) {
+                        this.triggerSecurityBlock('Malicious URL detected');
+                    }
+                });
+            }
+        }
+
+        // Initialize Security System
+        const webSecurity = new WebSecurity();
+
+        // Enhanced Link Tracking with Security
+        function secureNavigate(element) {
+            if (!webSecurity.checkRateLimit()) {
+                return false;
+            }
+
+            const action = element.getAttribute('data-action');
+            const section = element.getAttribute('data-section');
+            
+            webSecurity.logSuspiciousActivity(`Navigation: ${action || section || 'unknown'}`);
+            
+            return true;
+        }
+
         // Matrix Background Effect
         function createMatrixRain() {
             const matrixBg = document.getElementById('matrixBg');
@@ -609,18 +1012,25 @@
             const navLinks = document.getElementById('navLinks');
             const menuToggle = document.getElementById('menuToggle');
             
-            menuToggle.addEventListener('click', () => {
+            menuToggle.addEventListener('click', (e) => {
+                if (!webSecurity.checkRateLimit()) return;
+                
                 navLinks.classList.toggle('active');
                 menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
             });
         }
 
-        // Smooth Scrolling
+        // Smooth Scrolling with Security
         function smoothScroll() {
             const links = document.querySelectorAll('a[href^="#"]');
             
             links.forEach(link => {
                 link.addEventListener('click', (e) => {
+                    if (!secureNavigate(link)) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
                     e.preventDefault();
                     const targetId = link.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
@@ -654,6 +1064,8 @@
             });
             
             scrollTop.addEventListener('click', () => {
+                if (!webSecurity.checkRateLimit()) return;
+                
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -693,15 +1105,24 @@
 
         // Initialize all functions
         document.addEventListener('DOMContentLoaded', () => {
+            // Sanitize URL on load
+            webSecurity.sanitizeURL();
+            
             createMatrixRain();
             toggleMobileMenu();
             smoothScroll();
             scrollToTopButton();
             navbarScroll();
             animateOnScroll();
+            
+            // Security Status Check
+            setInterval(() => {
+                const status = document.querySelector('.security-status');
+                status.style.animation = 'pulse 2s infinite';
+            }, 5000);
         });
 
-        // Add some interactive effects
+        // Add some interactive effects with security
         document.addEventListener('mousemove', (e) => {
             const floatingElements = document.querySelectorAll('.floating-element');
             const x = e.clientX / window.innerWidth;
@@ -712,6 +1133,27 @@
                 element.style.transform = `translate(${x * 20 * speed}px, ${y * 20 * speed}px)`;
             });
         });
+
+        // Page Visibility API for security monitoring
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                webSecurity.logSuspiciousActivity('Page hidden - possible tab switching');
+            } else {
+                webSecurity.logSuspiciousActivity('Page visible - user returned');
+            }
+        });
+
+        // Disable printing
+        window.addEventListener('beforeprint', (e) => {
+            e.preventDefault();
+            webSecurity.logSuspiciousActivity('Print attempt blocked');
+            return false;
+        });
+
+        // Monitor for unauthorized iframe embedding
+        if (window.top !== window.self) {
+            webSecurity.triggerSecurityBlock('Unauthorized iframe embedding detected');
+        }
     </script>
 </body>
 </html>
